@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <!-- <script src="https://unpkg.com/vue/dist/vue.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  
+  <div id="app">
+    <v-app>
+      <v-content>
+        <v-container grid-list-md text-xs-center>
+          <v-layout row wrap>
+            
+            <v-flex xs4>
+              
+                
+                    
+                  <v-layout row align-baseline 
+                      v-for='(controller, name) in controllers' 
+                      :key='name'
+                  >
+                    <v-flex xs4>
+                      <v-subheader> {{name}} </v-subheader>
+                    </v-flex>
+                    <v-flex xs8> 
+                        <div 
+                            :is = 'controller.type' 
+                            v-model = 'variables[name]'                             
+                            v-bind = 'controller'
+                            
+                        ></div>  
+                      </v-flex>
+                  </v-layout row align-baseline>
+                    
+               
+                
+            </v-flex>
+            <v-layout column wrap>              
+              <v-flex xs8>
+                <v-card >
+                  <v-card-text class="px-0">
+                    <div v-html = "body"> </div>
+                  </v-card-text>
+                </v-card>
+              </v-flex>
+              <v-flex xs8>
+                <v-progress-linear 
+                    v-show = "updating"
+                    :indeterminate="true"
+                ></v-progress-linear>
+              </v-flex>
+            </v-layout>
+          </v-layout>  
+        </v-container>
+
+      </v-content>
+    </v-app>
+  </div>
+
+  <script>
+
+
+    new Vue({ 
+      el: '#app', 
+      data: function () {
+        return {     
+          variables: {
+            x: 1, 
+            y: 0
+          },
+          body: '<h1>...</h1>',
+          updating:false
+        }
+      },
+      watch: {
+        variables: {
+          handler: function(val) {
+            this.updating ? null : this.refreshBody();
+          },
+          deep: true
+        }
+      },
+      created: function() {
+        this.controllers = {
+            x: { type:'v-slider', min:0, max:1, step:0.01},
+            y: { type:'v-select', items: [0, 1,2,3]}
+          }
+      },
+      methods: {
+        refreshBody: function() {
+          var data = this;
+          console.log('about to make a call');
+          data.updating = true;
+          axios('./bodyAPI',
+            {
+              data: this.variables,
+              method: 'post'
+            }
+          ).then( 
+            function(response) {               
+              data.body = response.data;
+              data.updating = false;
+              
+            }
+          )
+        }
+      }
+   
+    })
+  </script>
+ 
+  
+</body>
+</html>

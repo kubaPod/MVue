@@ -1,0 +1,190 @@
+Notebook[{
+Cell["\<\
+
+1. Manipulate[ body, varSpec ]
+
+2. 
+\
+\>", "Program",
+ CellChangeTimes->{{3.7355328456779723`*^9, 
+  3.7355328693741612`*^9}},ExpressionUUID->"ff1a3040-d61b-48a7-a024-\
+a50679e39f32"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "@", 
+   RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.735532210338007*^9, 3.7355322158719435`*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"edae0c5a-049b-4044-a519-a507b979f0b2"],
+
+Cell[BoxData[
+ RowBox[{"$cloudRoot", "=", "\"\<mvue/simple/\>\""}]], "Input",
+ CellChangeTimes->{{3.735532350058115*^9, 3.7355323710083995`*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"b9c61f53-6497-4e12-9785-30b977c5ebec"],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\n", "  ", 
+  RowBox[{
+   RowBox[{"Graphics", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Rectangle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"y", ",", "y"}], "}"}]}], "]"}], ",", "Red", ",", "Thick", 
+       ",", 
+       RowBox[{"Circle", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0"}], "}"}], ",", "x"}], "]"}]}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "10"}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}], "\n", ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "1"}], "}"}], "\n", ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", "1", ",", "10"}], "}"}]}], "\n", "]"}]], "Code",
+ CellChangeTimes->{{3.735544732378427*^9, 3.7355448008909564`*^9}, {
+  3.735544939397354*^9, 3.73554497925803*^9}, {3.7355452826208515`*^9, 
+  3.7355453062499905`*^9}},
+ CellLabel->"In[90]:=",ExpressionUUID->"61f25dd8-d735-4ef2-97ab-73a48fbe87fc"],
+
+Cell[BoxData[
+ RowBox[{"CloudDeploy", "[", 
+  RowBox[{
+   RowBox[{"Manipulate", "[", "\n", "  ", 
+    RowBox[{
+     RowBox[{"Graphics", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Rectangle", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"y", ",", "y"}], "}"}]}], "]"}], ",", "Red", ",", "Thick",
+          ",", 
+         RowBox[{"Circle", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0"}], "}"}], ",", "x"}], "]"}]}], "}"}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", "10"}], ",", 
+       RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}], "\n", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "1"}], "}"}], "\n", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "1", ",", "10"}], "}"}]}], "\n", "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"$cloudRoot", "<>", "\"\<nativeApp\>\""}]}], "\[IndentingNewLine]",
+   "]"}]], "Input",
+ CellChangeTimes->{{3.7355496388973618`*^9, 3.735549662991327*^9}},
+ CellLabel->
+  "In[110]:=",ExpressionUUID->"f492c169-1930-4cb1-874f-282e66d73052"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CloudExport", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Import", "[", 
+     RowBox[{
+     "\"\<v-manipulate-simple-template.html\>\"", ",", "\"\<Text\>\""}], 
+     "]"}], ",", "\[IndentingNewLine]", "\"\<HTML\>\"", ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"$cloudRoot", "<>", "\"\<app\>\""}]}], "\[IndentingNewLine]", 
+   "]"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.735532375433158*^9, 3.7355324112324004`*^9}, {
+  3.735543260435797*^9, 3.7355432635196133`*^9}, {3.735548942826707*^9, 
+  3.7355489440812864`*^9}},
+ CellLabel->
+  "In[123]:=",ExpressionUUID->"7736f605-5c8d-40df-9c1d-1734863c85b1"],
+
+Cell[BoxData[
+ RowBox[{"CloudDeploy", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"APIFunction", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Function", "@", 
+      RowBox[{"Block", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"x", ",", "y"}], "}"}], ",", 
+        RowBox[{"Module", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"data", "=", 
+             RowBox[{"ImportString", "[", 
+              RowBox[{
+               RowBox[{"FromCharacterCode", "@", 
+                RowBox[{
+                 RowBox[{"HTTPRequestData", "[", "]"}], "[", 
+                 "\"\<BodyBytes\>\"", "]"}]}], ",", "\"\<RawJSON\>\""}], 
+              "]"}]}], ",", "body"}], "}"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{"variables", " ", "initialization"}], "*)"}], 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"KeyValueMap", "[", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"ToExpression", "[", 
+               RowBox[{"#", ",", "StandardForm", ",", 
+                RowBox[{"Function", "[", 
+                 RowBox[{"sym", ",", 
+                  RowBox[{"sym", "=", "#2"}], ",", "HoldFirst"}], "]"}]}], 
+               "]"}], "&"}], ",", "\[IndentingNewLine]", "data"}], 
+            "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"(*", "body", "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"body", "=", 
+            RowBox[{"Graphics", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Rectangle", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", "0"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"y", ",", "y"}], "}"}]}], "]"}], ",", "Red", ",", 
+                "Thick", ",", 
+                RowBox[{"Circle", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", "0"}], "}"}], ",", "x"}], "]"}]}], "}"}],
+               ",", 
+              RowBox[{"PlotRange", "\[Rule]", "10"}], ",", 
+              RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", "typesetting", "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"ExportString", "[", 
+            RowBox[{"body", ",", "\"\<HTMLFragment\>\""}], "]"}]}]}], "]"}]}],
+        "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"$cloudRoot", "<>", "\"\<bodyAPI\>\""}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.7355432821952486`*^9, 3.7355432934699345`*^9}, {
+   3.735543356416414*^9, 3.7355433661189156`*^9}, {3.735543495574457*^9, 
+   3.7355435295268393`*^9}, {3.7355436859981995`*^9, 3.735543791806501*^9}, {
+   3.735543959804701*^9, 3.7355439714848466`*^9}, 3.735544985612341*^9, 
+   3.73554536677256*^9},
+ CellLabel->"In[91]:=",ExpressionUUID->"d746da65-f5f4-47f6-b00b-cac7f3ddefd0"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7355322266334925`*^9, 3.735532240496971*^9}, 
+   3.735532382737254*^9},ExpressionUUID->"35961e3e-e3ea-44b2-8937-\
+5df99f241753"]
+},
+WindowSize->{775, 872},
+WindowMargins->{{1253, Automatic}, {Automatic, 254}},
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+TrackCellChangeTimes->False,
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+
