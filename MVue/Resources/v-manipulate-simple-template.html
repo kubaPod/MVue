@@ -17,45 +17,44 @@
         <v-container grid-list-md text-xs-center>
           <v-layout row wrap>
             
-            <v-flex xs4>
+            <v-flex md4>                    
               
+                <v-data-table
+                  hide-headers
+                  hide-actions
+                  :items="controllers"                  
+                  class="elevation-1"
+                >
+                  <template slot="items" slot-scope="props">      
+                    <td class="text-xs-right">{{ props.item.label || props.item.name }}</td>
+                    <td class="text-xs-center" width='100%'>
+                      <div 
+                          :is = 'props.item.type' 
+                          v-model = 'variables[props.item.name]'                             
+                          v-bind = 'props.item.spec'                          
+                      ></div> 
+                    </td>
+                  </template>
+                </v-data-table>
+
                 
-                    
-                  <v-layout row align-baseline 
-                      v-for='(controller, name) in controllers' 
-                      :key='name'
-                  >
-                    <v-flex xs4>
-                      <v-subheader> {{name}} </v-subheader>
-                    </v-flex>
-                    <v-flex xs8> 
-                        <div 
-                            :is = 'controller.type' 
-                            v-model = 'variables[name]'                             
-                            v-bind = 'controller'
-                            
-                        ></div>  
-                      </v-flex>
-                  </v-layout row align-baseline>
-                    
-               
-                
+              
             </v-flex>
-            <v-layout column wrap>              
-              <v-flex xs8>
-                <v-card >
-                  <v-card-text class="px-0">
+
+            <v-flex md8>
+              <v-card class='tm-5'>
+                <v-layout column>
+                  <v-flex >
                     <div v-html = "body"> </div>
-                  </v-card-text>
-                </v-card>
-              </v-flex>
-              <v-flex xs8>
-                <v-progress-linear 
-                    v-show = "updating"
-                    :indeterminate="true"
-                ></v-progress-linear>
-              </v-flex>
-            </v-layout>
+                  </v-flex>
+                  <v-flex>
+                      <v-progress-linear 
+                          v-show = "updating"
+                          :indeterminate="true"
+                      ></v-progress-linear> 
+                  </v-flex>
+                </v-layout>
+              </v-card>
           </v-layout>  
         </v-container>
 
@@ -87,10 +86,11 @@
         }
       },
       created: function() {
-        this.controllers = {
-            x: { type:'v-slider', min:0, max:1, step:0.01},
-            y: { type:'v-select', items: [0, 1,2,3]}
-          }
+        this.controllers = [
+            { name:'x', label:'very-long-label', type:'v-slider', spec: {min:0, max:1, step:0.01}},
+            { name:'y', type:'v-select', spec: {items: [0, 1,2,3]}}
+          ];
+        //this.refreshBody();
       },
       methods: {
         refreshBody: function() {

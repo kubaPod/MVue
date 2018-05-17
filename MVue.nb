@@ -1,4 +1,9 @@
 Notebook[{
+Cell[BoxData[
+ RowBox[{"SystemOpen", "@", 
+  "$InstallationDirectory"}]], \
+"Input",ExpressionUUID->"0618a00b-94c7-4f5b-abb4-c65a667ae738"],
+
 Cell["\<\
 
 1. Manipulate[ body, varSpec ]
@@ -14,13 +19,21 @@ Cell[BoxData[
  RowBox[{
   RowBox[{"SetDirectory", "@", 
    RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}]], "Input",
- CellChangeTimes->{{3.735532210338007*^9, 3.7355322158719435`*^9}},
- CellLabel->"In[11]:=",ExpressionUUID->"edae0c5a-049b-4044-a519-a507b979f0b2"],
+ CellChangeTimes->{{3.735532210338007*^9, 
+  3.7355322158719435`*^9}},ExpressionUUID->"edae0c5a-049b-4044-a519-\
+a507b979f0b2"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"$cloudRoot", "=", "\"\<mvue/simple/\>\""}]], "Input",
- CellChangeTimes->{{3.735532350058115*^9, 3.7355323710083995`*^9}},
- CellLabel->"In[13]:=",ExpressionUUID->"b9c61f53-6497-4e12-9785-30b977c5ebec"],
+ CellChangeTimes->{{3.735532350058115*^9, 
+  3.7355323710083995`*^9}},ExpressionUUID->"b9c61f53-6497-4e12-9785-\
+30b977c5ebec"],
+
+Cell[BoxData["\<\"mvue/simple/\"\>"], \
+"Output",ExpressionUUID->"18860d64-5ca8-4112-97b0-af9d0c316a10"]
+}, Open  ]],
 
 Cell[BoxData[
  RowBox[{"Manipulate", "[", "\n", "  ", 
@@ -48,8 +61,8 @@ Cell[BoxData[
     RowBox[{"y", ",", "1", ",", "10"}], "}"}]}], "\n", "]"}]], "Code",
  CellChangeTimes->{{3.735544732378427*^9, 3.7355448008909564`*^9}, {
   3.735544939397354*^9, 3.73554497925803*^9}, {3.7355452826208515`*^9, 
-  3.7355453062499905`*^9}},
- CellLabel->"In[90]:=",ExpressionUUID->"61f25dd8-d735-4ef2-97ab-73a48fbe87fc"],
+  3.7355453062499905`*^9}},ExpressionUUID->"61f25dd8-d735-4ef2-97ab-\
+73a48fbe87fc"],
 
 Cell[BoxData[
  RowBox[{"CloudDeploy", "[", 
@@ -80,9 +93,11 @@ Cell[BoxData[
    "\[IndentingNewLine]", 
    RowBox[{"$cloudRoot", "<>", "\"\<nativeApp\>\""}]}], "\[IndentingNewLine]",
    "]"}]], "Input",
- CellChangeTimes->{{3.7355496388973618`*^9, 3.735549662991327*^9}},
- CellLabel->
-  "In[110]:=",ExpressionUUID->"f492c169-1930-4cb1-874f-282e66d73052"],
+ CellChangeTimes->{{3.7355496388973618`*^9, 
+  3.735549662991327*^9}},ExpressionUUID->"f492c169-1930-4cb1-874f-\
+282e66d73052"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -90,16 +105,26 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"Import", "[", 
      RowBox[{
-     "\"\<v-manipulate-simple-template.html\>\"", ",", "\"\<Text\>\""}], 
-     "]"}], ",", "\[IndentingNewLine]", "\"\<HTML\>\"", ",", 
-    "\[IndentingNewLine]", 
+     "\"\<MVue/Resources/v-manipulate-simple-template.html\>\"", ",", 
+      "\"\<Text\>\""}], "]"}], ",", "\[IndentingNewLine]", "\"\<HTML\>\"", 
+    ",", "\[IndentingNewLine]", 
     RowBox[{"$cloudRoot", "<>", "\"\<app\>\""}]}], "\[IndentingNewLine]", 
-   "]"}], "\[IndentingNewLine]"}]], "Input",
- CellChangeTimes->{{3.735532375433158*^9, 3.7355324112324004`*^9}, {
-  3.735543260435797*^9, 3.7355432635196133`*^9}, {3.735548942826707*^9, 
-  3.7355489440812864`*^9}},
- CellLabel->
-  "In[123]:=",ExpressionUUID->"7736f605-5c8d-40df-9c1d-1734863c85b1"],
+   "]"}], "\[IndentingNewLine]"}]], \
+"Input",ExpressionUUID->"7736f605-5c8d-40df-9c1d-1734863c85b1"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"CloudObject", "[", 
+   TemplateBox[{
+    "\"https://www.wolframcloud.com/objects/kuba.pod/mvue/simple/app\"",
+     "https://www.wolframcloud.com/objects/kuba.pod/mvue/simple/app"},
+    "HyperlinkURL"], "]"}],
+  CloudObject["https://www.wolframcloud.com/objects/kuba.pod/mvue/simple/app"],
+  SelectWithContents->
+   True]], "Output",ExpressionUUID->"61611af5-9ac9-425f-9cf5-dc251e744cbb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"CloudDeploy", "[", "\[IndentingNewLine]", 
@@ -172,8 +197,21 @@ Cell[BoxData[
    3.735543356416414*^9, 3.7355433661189156`*^9}, {3.735543495574457*^9, 
    3.7355435295268393`*^9}, {3.7355436859981995`*^9, 3.735543791806501*^9}, {
    3.735543959804701*^9, 3.7355439714848466`*^9}, 3.735544985612341*^9, 
-   3.73554536677256*^9},
- CellLabel->"In[91]:=",ExpressionUUID->"d746da65-f5f4-47f6-b00b-cac7f3ddefd0"],
+   3.73554536677256*^9},ExpressionUUID->"d746da65-f5f4-47f6-b00b-\
+cac7f3ddefd0"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"CloudObject", "[", 
+   TemplateBox[{
+    "\"https://www.wolframcloud.com/objects/kuba.pod/mvue/simple/bodyAPI\"",
+     "https://www.wolframcloud.com/objects/kuba.pod/mvue/simple/bodyAPI"},
+    "HyperlinkURL"], "]"}],
+  CloudObject[
+  "https://www.wolframcloud.com/objects/kuba.pod/mvue/simple/bodyAPI"],
+  SelectWithContents->
+   True]], "Output",ExpressionUUID->"66f27f26-0826-4cef-acd6-a8ac4df3f819"]
+}, Open  ]],
 
 Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.7355322266334925`*^9, 3.735532240496971*^9}, 
@@ -181,10 +219,10 @@ Cell[BoxData[""], "Input",
 5df99f241753"]
 },
 WindowSize->{775, 872},
-WindowMargins->{{1253, Automatic}, {Automatic, 254}},
+WindowMargins->{{Automatic, 119}, {65, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 TrackCellChangeTimes->False,
-FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
 StyleDefinitions->"Default.nb"
 ]
 
