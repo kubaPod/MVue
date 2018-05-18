@@ -44,6 +44,13 @@ Begin["`Private`"];
 (*MVue*)
 
 
+(*$supportedManipulateForm[body_, varSpec_]:= Verbatim[Manipulate][
+    Pattern[body, Blank[]]
+  , Pattern[varSpec, ({_Symbol, __}|{{_Symbol, __}, __} ) ..]
+  , OptionsPattern[]
+  ]*)
+
+
 MVue::argpatt = "Currently MVue only recognizes Manipulate[body_, varSpec:({var_Symbol, __}|{{var_Symbol, __}, __} ) ..]";
 
 
@@ -55,10 +62,10 @@ MVue[
   ]
 ]:=Module[
   { vars , temp}
-, ManipulateBlock[{varSpec},
+, VManipulate @ ManipulateBlock[{varSpec},
     <|
       "controllers" -> VControl /@ {varSpec},
-      "body" -> {}
+      "bodyFunction" -> ManipulateAPIFunction[body, varSpec]
     |>
   ]
 ];
@@ -70,6 +77,26 @@ MVue[___]:=(Message[MVue::argpatt]; $Failed)
 
 
 (* ::Section:: *)
+(*VManipulate*)
+
+
+(* ::Section::Closed:: *)
+(*VControl*)
+
+
+VControl[{var_Symbol, min_?NumericQ, rest___}]:=VControl[{{var, min, SymbolName[var]}, min, rest}];
+
+
+VControl[{{var_Symbol, inital_, label_String}, min_, max_, step_:0.01, rest___}
+]:= <|
+  "name" -> SymbolName[var]
+, "label" -> label
+, "type" -> "v-slider"
+, "spec" -> <|"min" -> min, "max" -> max, "step" -> step|>  
+|>
+
+
+(* ::Section::Closed:: *)
 (*ManipulateBlock*)
 
 
@@ -89,6 +116,38 @@ ManipulateBlock[{varSpec:({_Symbol, __}|{{_Symbol, __}, __} )..}]:=Module[
 
 
 ManipulateBlock[varSpec_, expr_]:=ManipulateBlock[varSpec][expr]
+
+
+(* ::Section::Closed:: *)
+(*ManipulateAPIFunction*)
+
+
+ManipulateAPIFunction::usage = "Generates a function to be used in behind VManipulate's api function";
+
+
+ManipulateAPIFunction // Attributes = HoldAll;
+
+
+ManipulateAPIFunction[body_, varSpec__]:= With[
+  { block = ManipulateBlock[{varSpec}] }
+, Function @ block[  
+    Module[
+     { data = ImportString[FromCharacterCode @ HTTPRequestData[]["BodyBytes"],"RawJSON"]
+     , result
+     }
+   ,  (*variables initialization*)
+     KeyValueMap[
+       Function[{key, value}, ToExpression[key, StandardForm, Function[sym,sym=value,HoldFirst]]]     
+     , data
+     ]
+     
+     (*body*)
+   ; result = body
+   
+      (*formatting*) 
+   ; ExportString[body, "HTMLFragment"]]
+   ]
+]
 
 
 (* ::Chapter::Closed:: *)
