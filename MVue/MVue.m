@@ -1,16 +1,24 @@
 (* ::Package:: *)
 
-(* ::Chapter::Closed:: *)
+(* ::Chapter:: *)
 (*Meta*)
 
 
 (* Author: Kuba Podkalicki *)
 (* Notes:
      TODO:
+       - support for basic controllers
        - option: content type png/html
        - option: continuous action   
+       
    
        - dependency tree for body and dynamic structure at the end.
+       - error handling for api function
+       
+       
+       
+       
+       
        
      short scheme:
        Manipulate[body, {var_i, __}..]    ----> VManipulate[<|"controllers" \[Rule] dataset_, "body" \[Rule] function_|>]
@@ -40,7 +48,10 @@ Begin["`Private`"];
 (*Content*)
 
 
-(* ::Section:: *)
+$resources = FileNameJoin[{DirectoryName[$InputFileName /. "" :> NotebookFileName[]], "Resources"}];
+
+
+(* ::Section::Closed:: *)
 (*MVue*)
 
 
@@ -78,6 +89,21 @@ MVue[___]:=(Message[MVue::argpatt]; $Failed)
 
 (* ::Section:: *)
 (*VManipulate*)
+
+
+VManipulate /: CloudDeploy[vm_VManipulate, path_String, rest___]:= Module[
+  {app, api}
+, app = Import[ FileNameJoin[{$resources, "v-manipulate-simple-template.html"}]  , "Text"]
+; app = StringTemplate[  app ] @ (
+    "`" <> ExportString[  vm[[1,"controllers"]], "RawJSON", "Compact"->True] <> "`"
+  )
+; app = CloudExport[app, "HTML", path <> "/app", rest]   
+
+; api = APIFunction[{}, Evaluate @ vm[[1, "bodyFunction"]]]
+; api = CloudDeploy[api, path<>"/bodyAPI", rest]
+
+; app
+]
 
 
 (* ::Section::Closed:: *)

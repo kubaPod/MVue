@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     70641,       1526]
-NotebookOptionsPosition[     23224,        583]
-NotebookOutlinePosition[     70259,       1519]
-CellTagsIndexPosition[     70216,       1516]
+NotebookDataLength[     72200,       1567]
+NotebookOptionsPosition[     24520,        618]
+NotebookOutlinePosition[     71555,       1554]
+CellTagsIndexPosition[     71512,       1551]
 WindowTitle->MVueTests.nb
 WindowFrame->Normal*)
 
@@ -50,14 +50,15 @@ Cell[BoxData[{
   RowBox[{"x", ",", "y"}], "}"}], "\[IndentingNewLine]"}], "VerificationTest",
  CellChangeTimes->{{3.7356271117284203`*^9, 3.7356271791954536`*^9}, {
   3.735627376772873*^9, 3.735627382928898*^9}},
- CellID->274888903,ExpressionUUID->"a0fe324c-7998-411f-b9b4-bf4325c53235"],
+ CellLabel->"In[25]:=",
+ CellID->274888903,ExpressionUUID->"f1a29add-1107-4534-bcf3-937b1548c9f2"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"0", ",", "0"}], "}"}]], "ExpectedOutput",
  CellChangeTimes->{3.7356271805502796`*^9},
  CellLabel->"Out[24]=",
- CellID->110646938,ExpressionUUID->"6e2df9ee-d22d-4605-98d3-9db597db549b"],
+ CellID->110646938,ExpressionUUID->"8a44913f-c47b-4a11-b069-83ebd36e988a"],
 
 Cell[BoxData[
  PaneBox[
@@ -298,7 +299,7 @@ Function[Short[Slot[1], Rational[2, 3]]]]\)",
     GridBoxItemSize->{"Columns" -> {{All}}, "Rows" -> {{All}}}],
    "Grid"],
   ImageSize->Full]], "TestSuccess",
- CellID->548509927,ExpressionUUID->"994b5dca-9c70-4ed9-94a6-08e2fe0ce060"],
+ CellID->177657325,ExpressionUUID->"1b056215-3908-467f-970d-c84420144eab"],
 
 Cell[BoxData[
  PaneBox[
@@ -337,11 +338,13 @@ Cell[BoxData[
                   {
                    
                    DynamicBox[FEPrivate`FrontEndResource[
-                    "MUnitExpressions", "Add"]], 
+                    "MUnitExpressions", "Add"],
+                    ImageSizeCache->{16., {3., 9.}}], 
                    StyleBox[
                     
                     DynamicBox[FEPrivate`FrontEndResource[
-                    "MUnitStrings", "AddMessages-Label"]], "ButtonText",
+                    "MUnitStrings", "AddMessages-Label"],
+                    ImageSizeCache->{82., {2., 8.}}], "ButtonText",
                     StripOnInput->False,
                     LineColor->RGBColor[0.9059, 0.3451, 0.102],
                     FrontFaceColor->RGBColor[0.9059, 0.3451, 0.102],
@@ -353,7 +356,6 @@ Cell[BoxData[
                  
                  GridBoxAlignment->{
                   "Columns" -> {{Automatic}}, "Rows" -> {{Center}}},
-                 
                  GridBoxItemSize->{
                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
                 "Grid"]}, Dynamic[
@@ -457,6 +459,7 @@ Cell[BoxData[
                 Method->"Queued"], 
                ActionMenuBox[
                 ButtonBox["\<\"\"\>",
+                 
                  Appearance->FEPrivate`FrontEndResource[
                   "MUnitExpressions", "ButtonAppearancesNoLeftBorder"],
                  ButtonFunction:>{},
@@ -578,7 +581,39 @@ Cell[BoxData[
     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
    "Grid"],
   ImageSize->Full]], "BottomCell",
- CellID->45738681,ExpressionUUID->"28476bce-c6f1-4e9d-a777-cf8bed125b5e"]
+ CellID->72776035,ExpressionUUID->"78045ab7-e295-4a17-9278-378d33337aa2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MVue`Private`VControl", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"y", ",", "0", ",", "\"\<x\>\""}], "}"}], ",", "0", ",", "1"}], 
+   "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7356349257920237`*^9, 3.735634925879527*^9}},
+ CellLabel->"In[8]:=",
+ CellID->333937859,ExpressionUUID->"fce090b0-5695-4577-9bd6-338813809442"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"name\"\>", "\[Rule]", "\<\"y\"\>"}], ",", 
+   RowBox[{"\<\"label\"\>", "\[Rule]", "\<\"x\"\>"}], ",", 
+   RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"v-slider\"\>"}], ",", 
+   RowBox[{"\<\"spec\"\>", "\[Rule]", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\<\"min\"\>", "\[Rule]", "0"}], ",", 
+      RowBox[{"\<\"max\"\>", "\[Rule]", "1"}], ",", 
+      RowBox[{"\<\"step\"\>", "\[Rule]", "0.01`"}]}], 
+     "\[RightAssociation]"}]}]}], "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{{3.7356349168998985`*^9, 3.7356349416096106`*^9}, 
+   3.7356350676424513`*^9},
+ CellLabel->"Out[8]=",
+ CellID->756550301,ExpressionUUID->"e7e86ac6-6191-4baf-ab9b-144391eedf9e"]
 }, Open  ]]
 },
 WindowSize->{1277, 1079},
@@ -1133,7 +1168,7 @@ DockedCells->{
               DynamicBox[
                ToBoxes[
                 
-                MUnit`Palette`Private`resultColorBar$$[{548509927}, {
+                MUnit`Palette`Private`resultColorBar$$[{177657325}, {
                  1}, {}, {}, {}, 250, 12], StandardForm]], 
               ActionMenuBox[
                PaneSelectorBox[{False -> DynamicBox[
@@ -1519,14 +1554,20 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[606, 23, 1062, 29, 162, "VerificationTest",ExpressionUUID->"a0fe324c-7998-411f-b9b4-bf4325c53235",
+Cell[606, 23, 1086, 30, 162, "VerificationTest",ExpressionUUID->"f1a29add-1107-4534-bcf3-937b1548c9f2",
  CellID->274888903],
-Cell[1671, 54, 224, 5, 39, "ExpectedOutput",ExpressionUUID->"6e2df9ee-d22d-4605-98d3-9db597db549b",
+Cell[1695, 55, 224, 5, 39, "ExpectedOutput",ExpressionUUID->"8a44913f-c47b-4a11-b069-83ebd36e988a",
  CellID->110646938],
-Cell[1898, 61, 10144, 239, 23, "TestSuccess",ExpressionUUID->"994b5dca-9c70-4ed9-94a6-08e2fe0ce060",
- CellID->548509927],
-Cell[12045, 302, 11163, 278, 40, "BottomCell",ExpressionUUID->"28476bce-c6f1-4e9d-a777-cf8bed125b5e",
- CellID->45738681]
+Cell[1922, 62, 10144, 239, 23, "TestSuccess",ExpressionUUID->"1b056215-3908-467f-970d-c84420144eab",
+ CellID->177657325],
+Cell[12069, 303, 11269, 280, 40, "BottomCell",ExpressionUUID->"78045ab7-e295-4a17-9278-378d33337aa2",
+ CellID->72776035]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23375, 588, 370, 9, 28, "Input",ExpressionUUID->"fce090b0-5695-4577-9bd6-338813809442",
+ CellID->333937859],
+Cell[23748, 599, 756, 16, 32, "Output",ExpressionUUID->"e7e86ac6-6191-4baf-ab9b-144391eedf9e",
+ CellID->756550301]
 }, Open  ]]
 }
 ]

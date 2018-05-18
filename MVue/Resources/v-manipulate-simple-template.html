@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 <body>
-  <!-- <script src="https://unpkg.com/vue/dist/vue.js"></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   <script src="https://unpkg.com/vue/dist/vue.js"></script> 
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
   <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   
@@ -53,6 +53,7 @@
                           :indeterminate="true"
                       ></v-progress-linear> 
                   </v-flex>
+                  
                 </v-layout>
               </v-card>
           </v-layout>  
@@ -69,11 +70,8 @@
       el: '#app', 
       data: function () {
         return {     
-          variables: {
-            x: 1, 
-            y: 0
-          },
-          body: '<h1>...</h1>',
+          variables: {},
+          body: '<h1></h1>',
           updating:false
         }
       },
@@ -86,10 +84,15 @@
         }
       },
       created: function() {
-        this.controllers = [
-            { name:'x', label:'very-long-label', type:'v-slider', spec: {min:0, max:1, step:0.01}},
-            { name:'y', type:'v-select', spec: {items: [0, 1,2,3]}}
-          ];
+        var app = this;
+        
+        app.controllers = JSON.parse(``);
+
+        this.controllers.map( 
+          function(spec) { 
+            Vue.set(app.variables, spec.name, null);
+          }
+        );
         //this.refreshBody();
       },
       methods: {
