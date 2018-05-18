@@ -16,6 +16,7 @@
 (* 
      TODO:
        - support for basic controllers
+       - error handling
        - option: content type png/html
        - option: continuous action   
        - handle initial values

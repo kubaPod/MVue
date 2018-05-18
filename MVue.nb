@@ -44,9 +44,13 @@ Cell[BoxData[
       RowBox[{"{", 
        RowBox[{"z", ",", " ", 
         RowBox[{"{", 
-         RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}]}], "}"}]}], "\n", 
-     "]"}]}], ",", "\[IndentingNewLine]", "\"\<mvue/beta\>\"", ",", 
-   "\[IndentingNewLine]", 
+         RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}]}], "}"}], "\n", 
+      ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"a", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"True", ",", "False"}], "}"}]}], "}"}]}], "\n", "]"}]}], ",",
+    "\[IndentingNewLine]", "\"\<mvue/beta\>\"", ",", "\[IndentingNewLine]", 
    RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], 
   "\[IndentingNewLine]", 
   "]"}]], "Code",ExpressionUUID->"60e33dcf-6aaa-41dd-acf3-e73e2b43ff0d"],
@@ -60,7 +64,7 @@ Cell[BoxData[
     "HyperlinkURL"], "]"}],
   CloudObject["https://www.wolframcloud.com/objects/kuba.pod/mvue/beta/app"],
   SelectWithContents->
-   True]], "Output",ExpressionUUID->"6cd6d64a-1a59-4809-a44b-4103de578674"]
+   True]], "Output",ExpressionUUID->"a386ec2a-c3f7-460b-8afc-3c1782fa5962"]
 }, Open  ]]
 },
 WindowSize->{826, 703},
