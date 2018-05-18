@@ -5,11 +5,23 @@
 
 
 (* Author: Kuba Podkalicki *)
-(* Notes:
+
+(* The concept (based on Manipulate case)
+
+    MVue @ Manipulate should produce a json/js friendly object with controllers specification + a body function for API
+    json is feed into Vue.js based interface.
+    interface is deployed to {cloud}/{path}/app and API to ./bodyAPI
+       
+
+(* 
      TODO:
        - support for basic controllers
        - option: content type png/html
        - option: continuous action   
+       - handle initial values
+       - SymbolName encoding/form?
+       - ControlType support
+       - merge vuetify props if provided
        
    
        - dependency tree for body and dynamic structure at the end.
@@ -110,19 +122,41 @@ VManipulate /: CloudDeploy[vm_VManipulate, path_String, rest___]:= Module[
 (*VControl*)
 
 
+(*It does not need HoldAll because it is run in ManipulateBlock anyway, 
+  this way overloading is more flexible*)
+
+
+(* ::Subsection:: *)
+(*common*)
+
+
 VControl[{{var_Symbol, init_}, rest___}]:=VControl[{{var, init, SymbolName[var]}, rest}]
+
+
+(* ::Subsection:: *)
+(*sliders*)
 
 
 VControl[{var_Symbol, min_?NumericQ, rest___}]:=VControl[{{var, min}, min, rest}];
 
 
-VControl[{{var_Symbol, inital_, label_String}, min_, max_, step_:0.01, rest___}
+VControl[
+  { {var_Symbol, inital_?NumericQ, label_String}
+  , min_?NumericQ
+  , max_?NumericQ
+  , step : _?NumericQ : 0.01
+  , rest___
+  }
 ]:= <|
   "name" -> SymbolName[var]
 , "label" -> label
 , "type" -> "v-slider"
 , "spec" -> <|"min" -> min, "max" -> max, "step" -> step|>  
 |>
+
+
+(* ::Subsection::Closed:: *)
+(*selects*)
 
 
 VControl[{var_Symbol,items_List,rest___}]:=VControl[{{var, items[[1]]}, items,rest}]
@@ -136,11 +170,19 @@ VControl[{{var_Symbol, init_, lbl_String},items_List,rest___}]:= <|
 |>
 
 
+(* ::Subsection:: *)
+(*checkboxes*)
+
+
 VControl[{{var_Symbol, init_, lbl_String},items:{True,False},rest___}]:= <|
   "name" -> SymbolName[var]
 , "lable"->lbl
 , "type" -> "v-checkbox"
 |>
+
+
+(* ::Subsection:: *)
+(*argx*)
 
 
 VControl[___]:=$Failed;
