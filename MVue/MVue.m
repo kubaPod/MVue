@@ -84,7 +84,7 @@ ManipulateBlock // Attributes = HoldAll;
 ManipulateBlock[{varSpec:({_Symbol, __}|{{_Symbol, __}, __} )..}]:=Module[
   {vars}
 , vars = Hold[varSpec] /. { {{s_Symbol, __}, __}:> s, {s_Symbol, __}:>s}
-; vars /. Hold[vars__]:> Function[expr, Block[{vars}, expr ]]
+; vars /. Hold[vars__]:> Function[expr, Block[{vars}, expr ], HoldAll]
 ];
 
 
