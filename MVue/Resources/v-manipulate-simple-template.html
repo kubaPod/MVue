@@ -88,12 +88,12 @@
         
         app.controllers = JSON.parse(``);
 
-        this.controllers.map( 
+        app.controllers.map( 
           function(spec) { 
             Vue.set(app.variables, spec.name, null);
           }
         );
-        //this.refreshBody();
+        app.refreshBody();
       },
       methods: {
         refreshBody: function() {
@@ -102,7 +102,7 @@
           data.updating = true;
           axios('./bodyAPI',
             {
-              data: this.variables,
+              data: data.variables,
               method: 'post'
             }
           ).then( 

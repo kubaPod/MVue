@@ -106,7 +106,7 @@ VManipulate /: CloudDeploy[vm_VManipulate, path_String, rest___]:= Module[
 ]
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*VControl*)
 
 
@@ -120,6 +120,20 @@ VControl[{{var_Symbol, inital_, label_String}, min_, max_, step_:0.01, rest___}
 , "type" -> "v-slider"
 , "spec" -> <|"min" -> min, "max" -> max, "step" -> step|>  
 |>
+
+
+VControl[{var_Symbol,items_List,rest___}]:=VControl[{{var, items[[1]], SymbolName[var]}, items,rest}]
+
+
+VControl[{{var_Symbol, init_, lbl_String},items_List,rest___}]:= <|
+  "name" -> SymbolName[var]
+, "lable"->lbl
+, "type" -> "v-select"
+, "spec" -> <|"items"->items|>    
+|>
+
+
+VControl[___]:=$Failed;
 
 
 (* ::Section::Closed:: *)
