@@ -1,108 +1,11 @@
 Notebook[{
 Cell[BoxData[
- RowBox[{"SystemOpen", "@", 
-  "$InstallationDirectory"}]], \
-"Input",ExpressionUUID->"0618a00b-94c7-4f5b-abb4-c65a667ae738"],
-
-Cell["\<\
-
-1. Manipulate[ body, varSpec ]
-
-2. 
-\
-\>", "Program",
- CellChangeTimes->{{3.7355328456779723`*^9, 
-  3.7355328693741612`*^9}},ExpressionUUID->"ff1a3040-d61b-48a7-a024-\
-a50679e39f32"],
-
-Cell[BoxData[
  RowBox[{
   RowBox[{"SetDirectory", "@", 
    RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}]], "Input",
- CellChangeTimes->{{3.735532210338007*^9, 3.7355322158719435`*^9}},
- CellLabel->"In[5]:=",ExpressionUUID->"edae0c5a-049b-4044-a519-a507b979f0b2"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"$cloudRoot", "=", "\"\<mvue/simple/\>\""}]], "Input",
- CellChangeTimes->{{3.735532350058115*^9, 3.7355323710083995`*^9}},
- CellLabel->"In[23]:=",ExpressionUUID->"b9c61f53-6497-4e12-9785-30b977c5ebec"],
-
-Cell[BoxData["\<\"mvue/simple/\"\>"], "Output",
- CellLabel->"Out[23]=",ExpressionUUID->"cffec725-91c2-488d-8551-4051d773c92e"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[{
- RowBox[{"x", "=", "1"}], "\n", 
- RowBox[{
-  RowBox[{"$basicTest", " ", "=", " ", 
-   RowBox[{"Manipulate", "[", "\n", "  ", 
-    RowBox[{
-     RowBox[{"Graphics", "[", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"Rectangle", "[", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{"0", ",", "0"}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"y", ",", "y"}], "}"}]}], "]"}], ",", "Red", ",", "Thick",
-          ",", 
-         RowBox[{"Circle", "[", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{"0", ",", "0"}], "}"}], ",", "x"}], "]"}]}], "}"}], ",", 
-       RowBox[{"PlotRange", "\[Rule]", "10"}], ",", 
-       RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}], "\n", ",", " ", 
-     RowBox[{"{", 
-      RowBox[{"x", ",", "0", ",", "1"}], "}"}], "\n", ",", " ", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{"y", ",", "2", ",", " ", "\"\<y label\>\""}], "}"}], ",", "1",
-        ",", "10"}], "}"}]}], "\n", "]"}]}], ";"}]}], "Code",
- CellLabel->"In[1]:=",ExpressionUUID->"61f25dd8-d735-4ef2-97ab-73a48fbe87fc"],
-
-Cell[BoxData["1"], "Output",
- CellLabel->"Out[1]=",ExpressionUUID->"c718b082-9683-4389-88bf-56f4924e498e"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"InputForm", "@", 
-  RowBox[{"MVue", "@", "$basicTest"}]}]], "Input",
- CellLabel->"In[12]:=",ExpressionUUID->"8501f633-1f4b-4b40-9f5c-bac1afb0a437"],
-
-Cell["\<\
-VManipulate[<|\"controllers\" -> {<|\"name\" -> \"x\", \"label\" -> \"x\", \
-\"type\" -> \"v-slider\", 
-     \"spec\" -> <|\"min\" -> 0, \"max\" -> 1, \"step\" -> 0.01|>|>, 
-    <|\"name\" -> \"y\", \"label\" -> \"y label\", \"type\" -> \"v-slider\", 
-     \"spec\" -> <|\"min\" -> 1, \"max\" -> 10, \"step\" -> 0.01|>|>}, 
-  \"bodyFunction\" -> (Function[MVue`Private`expr$, Block[{x, y}, \
-MVue`Private`expr$], HoldAll][
-     Module[{MVue`Private`data$ = \
-ImportString[FromCharacterCode[HTTPRequestData[][
-           \"BodyBytes\"]], \"RawJSON\"], MVue`Private`result$}, 
-      KeyValueMap[Function[{MVue`Private`key, MVue`Private`value}, 
-         ToExpression[MVue`Private`key, StandardForm, \
-Function[MVue`Private`sym, 
-           MVue`Private`sym = MVue`Private`value, HoldFirst]]], \
-MVue`Private`data$]; 
-       MVue`Private`result$ = Graphics[{Rectangle[{0, 0}, {y, y}], Red, Thick, 
-          Circle[{0, 0}, x]}, PlotRange -> 10, Frame -> True]; 
-       ExportString[Graphics[{Rectangle[{0, 0}, {y, y}], Red, Thick, \
-Circle[{0, 0}, x]}, 
-         PlotRange -> 10, Frame -> True], \"HTMLFragment\"]]] & )|>]\
-\>", "Output",
- CellLabel->
-  "Out[12]//InputForm=",ExpressionUUID->"a8e37176-9df8-48ce-ada5-196014622741"]
-}, Open  ]],
+ CellChangeTimes->{{3.735532210338007*^9, 
+  3.7355322158719435`*^9}},ExpressionUUID->"edae0c5a-049b-4044-a519-\
+a507b979f0b2"],
 
 Cell[CellGroupData[{
 
@@ -137,242 +40,34 @@ Cell[BoxData[
        RowBox[{
         RowBox[{"{", 
          RowBox[{"y", ",", "2", ",", " ", "\"\<rectangle\>\""}], "}"}], ",", 
-        "1", ",", "10"}], "}"}]}], "\n", "\n", "]"}]}], ",", 
-   "\[IndentingNewLine]", "\"\<mvue/beta\>\"", ",", "\[IndentingNewLine]", 
-   RowBox[{"Permissions", "\[Rule]", "\"\<Private\>\""}]}], 
-  "\[IndentingNewLine]", "]"}]], "Code",
- CellLabel->"In[32]:=",ExpressionUUID->"60e33dcf-6aaa-41dd-acf3-e73e2b43ff0d"],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"CloudObject", "[", 
-   TemplateBox[{
-    "\"https://www.wolframcloud.com/objects/kuba2/mvue/beta/app\"",
-     "https://www.wolframcloud.com/objects/kuba2/mvue/beta/app"},
-    "HyperlinkURL"], "]"}],
-  CloudObject["https://www.wolframcloud.com/objects/kuba2/mvue/beta/app"],
-  SelectWithContents->True]], "Output",
- CellLabel->"Out[32]=",ExpressionUUID->"67fa9a88-46ea-4bd4-a956-25c34495f751"]
-}, Open  ]],
-
-Cell[BoxData[
- RowBox[{"x", "=", "1"}]], "Input",
- CellLabel->"In[32]:=",ExpressionUUID->"3a409561-b6b4-4a8a-b0c8-678a7ba8dfed"],
-
-Cell[BoxData[
- RowBox[{"Hold", "/@", 
-  RowBox[{"Unevaluated", "@", 
-   RowBox[{"{", "x", "}"}]}]}]], "Input",
- CellLabel->"In[33]:=",ExpressionUUID->"660045f4-e96e-4779-b6d2-fa882d0c4e52"],
-
-Cell[BoxData[
- RowBox[{"CloudDeploy", "[", 
-  RowBox[{
-   RowBox[{"Manipulate", "[", "\n", "  ", 
-    RowBox[{
-     RowBox[{"Graphics", "[", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"Rectangle", "[", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{"0", ",", "0"}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"y", ",", "y"}], "}"}]}], "]"}], ",", "Red", ",", "Thick",
-          ",", 
-         RowBox[{"Circle", "[", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{"0", ",", "0"}], "}"}], ",", "x"}], "]"}]}], "}"}], ",", 
-       RowBox[{"PlotRange", "\[Rule]", "10"}], ",", 
-       RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}], "\n", ",", " ", 
-     RowBox[{"{", 
-      RowBox[{"x", ",", "0", ",", "1"}], "}"}], "\n", ",", " ", 
-     RowBox[{"{", 
-      RowBox[{"y", ",", "1", ",", "10"}], "}"}]}], "\n", "]"}], ",", 
-   "\[IndentingNewLine]", 
-   RowBox[{"$cloudRoot", "<>", "\"\<nativeApp\>\""}]}], "\[IndentingNewLine]",
-   "]"}]], "Input",
- CellChangeTimes->{{3.7355496388973618`*^9, 
-  3.735549662991327*^9}},ExpressionUUID->"f492c169-1930-4cb1-874f-\
-282e66d73052"],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"CloudExport", "[", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"Import", "[", 
-     RowBox[{
-     "\"\<MVue/Resources/v-manipulate-simple-template.html\>\"", ",", 
-      "\"\<Text\>\""}], "]"}], ",", "\[IndentingNewLine]", "\"\<HTML\>\"", 
-    ",", "\[IndentingNewLine]", 
-    RowBox[{"$cloudRoot", "<>", "\"\<app\>\""}], ",", "\[IndentingNewLine]", 
-    RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], 
-   "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]"}]], "Input",
- CellLabel->"In[6]:=",ExpressionUUID->"7736f605-5c8d-40df-9c1d-1734863c85b1"],
-
-Cell[BoxData[
- RowBox[{"CloudDeploy", "[", "\[IndentingNewLine]", 
-  RowBox[{
-   RowBox[{"APIFunction", "[", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
-     RowBox[{"Function", "@", 
-      RowBox[{"Block", "[", 
-       RowBox[{
+        "1", ",", "10"}], "}"}], "\n", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"z", ",", " ", 
         RowBox[{"{", 
-         RowBox[{"x", ",", "y"}], "}"}], ",", 
-        RowBox[{"Module", "[", "\[IndentingNewLine]", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"data", "=", 
-             RowBox[{"ImportString", "[", 
-              RowBox[{
-               RowBox[{"FromCharacterCode", "@", 
-                RowBox[{
-                 RowBox[{"HTTPRequestData", "[", "]"}], "[", 
-                 "\"\<BodyBytes\>\"", "]"}]}], ",", "\"\<RawJSON\>\""}], 
-              "]"}]}], ",", "body"}], "}"}], ",", "\[IndentingNewLine]", 
-          RowBox[{"(*", 
-           RowBox[{"variables", " ", "initialization"}], "*)"}], 
-          "\[IndentingNewLine]", 
-          RowBox[{
-           RowBox[{"KeyValueMap", "[", "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{
-              RowBox[{"ToExpression", "[", 
-               RowBox[{"#", ",", "StandardForm", ",", 
-                RowBox[{"Function", "[", 
-                 RowBox[{"sym", ",", 
-                  RowBox[{"sym", "=", "#2"}], ",", "HoldFirst"}], "]"}]}], 
-               "]"}], "&"}], ",", "\[IndentingNewLine]", "data"}], 
-            "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-           RowBox[{"(*", "body", "*)"}], "\[IndentingNewLine]", 
-           RowBox[{"body", "=", 
-            RowBox[{"Graphics", "[", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"Rectangle", "[", 
-                 RowBox[{
-                  RowBox[{"{", 
-                   RowBox[{"0", ",", "0"}], "}"}], ",", 
-                  RowBox[{"{", 
-                   RowBox[{"y", ",", "y"}], "}"}]}], "]"}], ",", "Red", ",", 
-                "Thick", ",", 
-                RowBox[{"Circle", "[", 
-                 RowBox[{
-                  RowBox[{"{", 
-                   RowBox[{"0", ",", "0"}], "}"}], ",", "x"}], "]"}]}], "}"}],
-               ",", 
-              RowBox[{"PlotRange", "\[Rule]", "10"}], ",", 
-              RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}]}], ";", 
-           "\[IndentingNewLine]", 
-           RowBox[{"(*", "typesetting", "*)"}], "\[IndentingNewLine]", 
-           RowBox[{"ExportString", "[", 
-            RowBox[{"body", ",", "\"\<HTMLFragment\>\""}], "]"}]}]}], "]"}]}],
-        "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}], ",", 
-   "\[IndentingNewLine]", 
-   RowBox[{"$cloudRoot", "<>", "\"\<bodyAPI\>\""}], ",", 
+         RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}]}], "}"}]}], "\n", 
+     "]"}]}], ",", "\[IndentingNewLine]", "\"\<mvue/beta\>\"", ",", 
    "\[IndentingNewLine]", 
    RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], 
-  "\[IndentingNewLine]", "]"}]], "Input",
- CellChangeTimes->{{3.7355432821952486`*^9, 3.7355432934699345`*^9}, {
-   3.735543356416414*^9, 3.7355433661189156`*^9}, {3.735543495574457*^9, 
-   3.7355435295268393`*^9}, {3.7355436859981995`*^9, 3.735543791806501*^9}, {
-   3.735543959804701*^9, 3.7355439714848466`*^9}, 3.735544985612341*^9, 
-   3.73554536677256*^9},
- CellLabel->"In[7]:=",ExpressionUUID->"d746da65-f5f4-47f6-b00b-cac7f3ddefd0"],
-
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.7355322266334925`*^9, 3.735532240496971*^9}, 
-   3.735532382737254*^9},ExpressionUUID->"35961e3e-e3ea-44b2-8937-\
-5df99f241753"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"SetDirectory", "@", 
-  RowBox[{"NotebookDirectory", "[", "]"}]}]], "Input",
- CellLabel->"In[15]:=",ExpressionUUID->"1b555ce1-6853-47b2-9327-edb77056170a"],
-
-Cell[BoxData["\<\"C:\\\\Users\\\\Kuba\\\\IdeaProjects\\\\MVue\"\>"], "Output",
- CellLabel->"Out[15]=",ExpressionUUID->"8e1263cd-6c72-4a55-b16d-9908e322f6e9"]
-}, Open  ]],
-
-Cell[BoxData["FileTemplateApply"], \
-"Input",ExpressionUUID->"3fe9e38c-c167-49c3-bc56-716c74294434"],
-
-Cell[BoxData[
- RowBox[{"Export", "[", "\[IndentingNewLine]", 
-  RowBox[{
-   RowBox[{"TemplateApply", "[", "\[IndentingNewLine]", 
-    RowBox[{"Import", "[", 
-     RowBox[{
-     "\"\<MVue/Resources/v-manipulate-simple-template.html\>\"", ",", 
-      "\"\<Text\>\""}], "]"}], "\[IndentingNewLine]", "]"}], "[", 
-   RowBox[{
-    RowBox[{
-     RowBox[{
-      RowBox[{"MVue", "[", "$basicTest", "]"}], "[", 
-      RowBox[{"[", 
-       RowBox[{"1", ",", "\"\<controllers\>\""}], "]"}], "]"}], "//", 
-     RowBox[{
-      RowBox[{"\"\<`\>\"", "<>", 
-       RowBox[{"ExportString", "[", 
-        RowBox[{"#", ",", "\"\<RawJSON\>\"", ",", 
-         RowBox[{"\"\<Compact\>\"", "\[Rule]", "True"}]}], "]"}], "<>", 
-       "\"\<`\>\""}], "&"}]}], "//", "ToString"}], 
-   "]"}]}]], "Input",ExpressionUUID->"a292a26f-d180-47f6-840e-a83ccf6a9d4c"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"CloudExport", "[", "\[IndentingNewLine]", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"StringTemplate", "[", "\[IndentingNewLine]", 
-     RowBox[{"Import", "[", 
-      RowBox[{
-      "\"\<MVue/Resources/v-manipulate-simple-template.html\>\"", ",", 
-       "\"\<Text\>\""}], "]"}], "\[IndentingNewLine]", "]"}], "[", 
-    RowBox[{
-     RowBox[{
-      RowBox[{
-       RowBox[{"MVue", "[", "$basicTest", "]"}], "[", 
-       RowBox[{"[", 
-        RowBox[{"1", ",", "\"\<controllers\>\""}], "]"}], "]"}], "//", 
-      RowBox[{
-       RowBox[{"\"\<`\>\"", "<>", 
-        RowBox[{"ExportString", "[", 
-         RowBox[{"#", ",", "\"\<RawJSON\>\"", ",", 
-          RowBox[{"\"\<Compact\>\"", "\[Rule]", "True"}]}], "]"}], "<>", 
-        "\"\<`\>\""}], "&"}]}], "//", "ToString"}], "]"}], ",", 
-   "\[IndentingNewLine]", "\"\<HTML\>\"", ",", "\[IndentingNewLine]", 
-   RowBox[{"$cloudRoot", "<>", "\"\<app\>\""}], ",", "\[IndentingNewLine]", 
-   RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], 
-  "\[IndentingNewLine]", "]"}]], "Input",
- CellLabel->"In[25]:=",ExpressionUUID->"e248190f-f600-4198-ac0f-dba310a6fef7"],
+  "\[IndentingNewLine]", 
+  "]"}]], "Code",ExpressionUUID->"60e33dcf-6aaa-41dd-acf3-e73e2b43ff0d"],
 
 Cell[BoxData[
  InterpretationBox[
   RowBox[{"CloudObject", "[", 
    TemplateBox[{
-    "\"https://www.wolframcloud.com/objects/kuba2/mvue/simple/app\"",
-     "https://www.wolframcloud.com/objects/kuba2/mvue/simple/app"},
+    "\"https://www.wolframcloud.com/objects/kuba.pod/mvue/beta/app\"",
+     "https://www.wolframcloud.com/objects/kuba.pod/mvue/beta/app"},
     "HyperlinkURL"], "]"}],
-  CloudObject["https://www.wolframcloud.com/objects/kuba2/mvue/simple/app"],
-  SelectWithContents->True]], "Output",
- CellLabel->"Out[25]=",ExpressionUUID->"85f9803d-2e81-4e23-989f-bb8e1c8bba9e"]
+  CloudObject["https://www.wolframcloud.com/objects/kuba.pod/mvue/beta/app"],
+  SelectWithContents->
+   True]], "Output",ExpressionUUID->"6cd6d64a-1a59-4809-a44b-4103de578674"]
 }, Open  ]]
 },
-WindowSize->{806, 227},
-WindowMargins->{{Automatic, 1197}, {Automatic, 382}},
+WindowSize->{826, 703},
+WindowMargins->{{Automatic, 124}, {Automatic, 139}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 TrackCellChangeTimes->False,
-FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
 StyleDefinitions->"Default.nb"
 ]
 

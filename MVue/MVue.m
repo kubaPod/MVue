@@ -110,7 +110,10 @@ VManipulate /: CloudDeploy[vm_VManipulate, path_String, rest___]:= Module[
 (*VControl*)
 
 
-VControl[{var_Symbol, min_?NumericQ, rest___}]:=VControl[{{var, min, SymbolName[var]}, min, rest}];
+VControl[{{var_Symbol, init_}, rest___}]:=VControl[{{var, init, SymbolName[var]}, rest}]
+
+
+VControl[{var_Symbol, min_?NumericQ, rest___}]:=VControl[{{var, min}, min, rest}];
 
 
 VControl[{{var_Symbol, inital_, label_String}, min_, max_, step_:0.01, rest___}
@@ -122,7 +125,7 @@ VControl[{{var_Symbol, inital_, label_String}, min_, max_, step_:0.01, rest___}
 |>
 
 
-VControl[{var_Symbol,items_List,rest___}]:=VControl[{{var, items[[1]], SymbolName[var]}, items,rest}]
+VControl[{var_Symbol,items_List,rest___}]:=VControl[{{var, items[[1]]}, items,rest}]
 
 
 VControl[{{var_Symbol, init_, lbl_String},items_List,rest___}]:= <|
@@ -130,6 +133,13 @@ VControl[{{var_Symbol, init_, lbl_String},items_List,rest___}]:= <|
 , "lable"->lbl
 , "type" -> "v-select"
 , "spec" -> <|"items"->items|>    
+|>
+
+
+VControl[{{var_Symbol, init_, lbl_String},items:{True,False},rest___}]:= <|
+  "name" -> SymbolName[var]
+, "lable"->lbl
+, "type" -> "v-checkbox"
 |>
 
 
