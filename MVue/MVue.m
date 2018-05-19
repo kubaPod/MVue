@@ -11,7 +11,9 @@
     MVue @ Manipulate should produce a json/js friendly object with controllers specification + a body function for API
     json is feed into Vue.js based interface.
     interface is deployed to {cloud}/{path}/app and API to ./bodyAPI
-       
+ *)
+ 
+
 
 (* 
      TODO:
@@ -28,17 +30,11 @@
        - dependency tree for body and dynamic structure at the end.
        - error handling for api function
        
-       
-       
-       
-       
-       
      short scheme:
        Manipulate[body, {var_i, __}..]    ----> VManipulate[<|"controllers" \[Rule] dataset_, "body" \[Rule] function_|>]
        
        CloudDeploy[VManipulate] --\[Rule] (body \[Rule] apifunction) + (v-manipulate-templ + controllers --\[Rule] app html)
 *)
-
 
 
 (* ::Chapter::Closed:: *)
@@ -64,7 +60,7 @@ Begin["`Private`"];
 $resources = FileNameJoin[{DirectoryName[$InputFileName /. "" :> NotebookFileName[]], "Resources"}];
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*MVue*)
 
 
@@ -94,10 +90,11 @@ MVue[
   ]
 ];
 
+
 MVue[opts:OptionsPattern]:=Function[expr, MVue[expr, opts]];  
 
-MVue[___]:=(Message[MVue::argpatt]; $Failed)
 
+MVue[___]:=(Message[MVue::argpatt]; $Failed)
 
 
 (* ::Section:: *)
@@ -142,7 +139,7 @@ VControl[{var_Symbol, min_?NumericQ, rest___}]:=VControl[{{var, min}, min, rest}
 
 
 VControl[
-  { {var_Symbol, inital_?NumericQ, label_String}
+  { {var_Symbol, initial_?NumericQ, label_String}
   , min_?NumericQ
   , max_?NumericQ
   , step : _?NumericQ : 0.01
@@ -151,12 +148,13 @@ VControl[
 ]:= <|
   "name" -> SymbolName[var]
 , "label" -> label
+, "init" -> initial
 , "type" -> "v-slider"
 , "spec" -> <|"min" -> min, "max" -> max, "step" -> step|>  
 |>
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*selects*)
 
 
@@ -166,6 +164,7 @@ VControl[{var_Symbol,items_List,rest___}]:=VControl[{{var, items[[1]]}, items,re
 VControl[{{var_Symbol, init_, lbl_String},items_List,rest___}]:= <|
   "name" -> SymbolName[var]
 , "lable"->lbl
+, "init" -> init
 , "type" -> "v-select"
 , "spec" -> <|"items"->items|>    
 |>
@@ -178,6 +177,7 @@ VControl[{{var_Symbol, init_, lbl_String},items_List,rest___}]:= <|
 VControl[{{var_Symbol, init_, lbl_String},items:{True,False},rest___}]:= <|
   "name" -> SymbolName[var]
 , "lable"->lbl
+, "init" -> init
 , "type" -> "v-checkbox"
 |>
 

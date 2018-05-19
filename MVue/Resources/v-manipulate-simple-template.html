@@ -86,13 +86,24 @@
       created: function() {
         var app = this;
         
+
+          //this will be used as StringTemplate and json string will be injected here
+          //in future json config should be a separate file
         app.controllers = JSON.parse(``);
 
+
+          
         app.controllers.map( 
           function(spec) { 
+            // set reactivity for variables
             Vue.set(app.variables, spec.name, null);
+            // set initial values
+            app.variables[spec.name] = spec.init;
           }
         );
+          
+
+
         app.refreshBody();
       },
       methods: {
