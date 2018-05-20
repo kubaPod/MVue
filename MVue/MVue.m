@@ -17,23 +17,26 @@
 
 (* 
      TODO:
+       - option: continuous action          
        - support for basic controllers
+         + slider
+         + popup menu
+         + checkbox
+         - via ControlType
+           - input field
+           - toggler
+           - setter         
+         
        - error handling
        - option: content type png/html
-       - option: continuous action   
-       - handle initial values
+       
        - SymbolName encoding/form?
-       - ControlType support
+       
        - merge vuetify props if provided
        
    
        - dependency tree for body and dynamic structure at the end.
        - error handling for api function
-       
-     short scheme:
-       Manipulate[body, {var_i, __}..]    ----> VManipulate[<|"controllers" \[Rule] dataset_, "body" \[Rule] function_|>]
-       
-       CloudDeploy[VManipulate] --\[Rule] (body \[Rule] apifunction) + (v-manipulate-templ + controllers --\[Rule] app html)
 *)
 
 
@@ -74,24 +77,10 @@ $resources = FileNameJoin[{DirectoryName[$InputFileName /. "" :> NotebookFileNam
 MVue::argpatt = "Currently MVue only recognizes Manipulate[body_, varSpec:({var_Symbol, __}|{{var_Symbol, __}, __} ) ..]";
 
 
-MVue[
-  m:Verbatim[Manipulate][
-    body_
-  , varSpec:({_Symbol, __}|{{_Symbol, __}, __} ) ..
-  , OptionsPattern[]
-  ]
-]:=Module[
-  { vars , temp}
-, VManipulate @ ManipulateBlock[{varSpec},
-    <|
-      "controllers" -> VControl /@ {varSpec},
-      "bodyFunction" -> ManipulateAPIFunction[body, varSpec]
-    |>
-  ]
-];
+MVue[m_Manipulate, opts___?OptionQ]:= VManipulate[m, opts]
 
 
-MVue[opts:OptionsPattern]:=Function[expr, MVue[expr, opts]];  
+MVue[opts___?OptionQ]:=Function[expr, MVue[expr, opts]];  
 
 
 MVue[___]:=(Message[MVue::argpatt]; $Failed)
@@ -99,6 +88,35 @@ MVue[___]:=(Message[MVue::argpatt]; $Failed)
 
 (* ::Section:: *)
 (*VManipulate*)
+
+
+VManipulate // Options = {
+  ContinuousAction -> False
+};  
+
+
+VManipulate[
+  m : Verbatim[Manipulate][
+    body    : _
+  , varSpec : ({_Symbol, __}|{{_Symbol, __}, __} ) ..
+  , opts    : OptionsPattern[]
+  ]
+, vopts : OptionsPattern[]
+]:=Module[  {  config}
+
+, config = KeyMap[ Decapitalize @* ToString ] @ <|    
+    Options[VManipulate]
+  , vopts   
+  , FilterRules[{opts}, Options[VManipulate]]  
+  |>
+  
+; VManipulate @ ManipulateBlock[{varSpec},
+    <|"controllers" -> VControl /@ {varSpec}
+    , "bodyFunction" -> ManipulateAPIFunction[body, varSpec]
+    , config
+    |>
+  ]
+];
 
 
 VManipulate /: CloudDeploy[vm_VManipulate, path_String, rest___]:= Module[

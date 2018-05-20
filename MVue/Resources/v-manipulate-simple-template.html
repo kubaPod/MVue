@@ -31,7 +31,8 @@
                       <div 
                           :is = 'props.item.type' 
                           v-model = 'variables[props.item.name]'                             
-                          v-bind = 'props.item.spec'                          
+                          v-bind = 'props.item.spec'  
+                          v-on = 'props.item.events || {}'
                       ></div> 
                     </td>
                   </template>
@@ -75,30 +76,35 @@
           updating:false
         }
       },
-      watch: {
-        variables: {
-          handler: function(val) {
-            this.updating ? null : this.refreshBody();
-          },
-          deep: true
-        }
-      },
+      // watch: {
+      //   variables: {
+      //     handler: function(val) {
+      //       this.updating ? null : this.refreshBody();
+      //     },
+      //     deep: true
+      //   }
+      // },
       created: function() {
-        var app = this;
-        
+        var app = this;        
 
           //this will be used as StringTemplate and json string will be injected here
           //in future json config should be a separate file
         app.controllers = JSON.parse(``);
-
-
           
         app.controllers.map( 
-          function(spec) { 
+          function(controller) { 
             // set reactivity for variables
-            Vue.set(app.variables, spec.name, null);
+            Vue.set(app.variables, controller.name, null);
+
             // set initial values
-            app.variables[spec.name] = spec.init;
+            app.variables[controller.name] = controller.init;
+
+            // how refreshBody is triggered by given controller
+            controller.events = controller.type === "v-slider" 
+                //maybe that is stupid but could not find anything better. and ondragend does not work
+              ? { mouseup: app.refreshBody }  
+              : { change: app.refreshBody } 
+
           }
         );
           
@@ -107,6 +113,9 @@
         app.refreshBody();
       },
       methods: {
+        log: function(logs) {
+          console.log(logs)
+        },
         refreshBody: function() {
           var data = this;
           console.log('about to make a call');
