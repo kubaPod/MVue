@@ -122,9 +122,11 @@ VManipulate[
 VManipulate /: CloudDeploy[vm_VManipulate, path_String, rest___]:= Module[
   {app, api}
 , app = Import[ FileNameJoin[{$resources, "v-manipulate-simple-template.html"}]  , "Text"]
-; app = StringTemplate[  app ] @ (
-    "`" <> ExportString[  vm[[1,"controllers"]], "RawJSON", "Compact"->True] <> "`"
-  )
+; app = StringTemplate[  app ] @ StringJoin[
+    "`"
+  , ExportString[  KeyDrop["bodyFunction"] @ First @ vm, "RawJSON", "Compact"->True]
+  , "`"
+  ]
 ; app = CloudExport[app, "HTML", path <> "/app", rest]   
 
 ; api = APIFunction[{}, Evaluate @ vm[[1, "bodyFunction"]]]
