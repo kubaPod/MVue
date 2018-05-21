@@ -1,14 +1,6 @@
 Notebook[{
-Cell[BoxData[
- RowBox[{
-  RowBox[{"SetDirectory", "@", 
-   RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}]], "Input",
- CellChangeTimes->{{3.735532210338007*^9, 
-  3.7355322158719435`*^9}},ExpressionUUID->"edae0c5a-049b-4044-a519-\
-a507b979f0b2"],
 
 Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{"CloudDeploy", "[", "\[IndentingNewLine]", 
   RowBox[{
@@ -42,15 +34,23 @@ Cell[BoxData[
          RowBox[{"y", ",", "2", ",", " ", "\"\<rectangle\>\""}], "}"}], ",", 
         "1", ",", "10"}], "}"}], "\n", ",", " ", 
       RowBox[{"{", 
-       RowBox[{"z", ",", " ", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"z", ",", "3"}], "}"}], ",", " ", 
         RowBox[{"{", 
          RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}]}], "}"}], "\n", 
       ",", " ", 
       RowBox[{"{", 
        RowBox[{"a", ",", " ", 
         RowBox[{"{", 
-         RowBox[{"True", ",", "False"}], "}"}]}], "}"}]}], "\n", "]"}]}], ",",
-    "\[IndentingNewLine]", "\"\<mvue/beta\>\"", ",", "\[IndentingNewLine]", 
+         RowBox[{"True", ",", "False"}], "}"}]}], "}"}], "\n", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"y", ",", "2", ",", " ", "\"\<rectangle\>\""}], "}"}], ",", 
+        "1", ",", "10"}], "}"}], "\n", "\n", ",", " ", 
+      RowBox[{"ContinuousAction", "\[Rule]", "True"}]}], "\n", "]"}]}], ",", 
+   "\[IndentingNewLine]", "\"\<mvue/beta\>\"", ",", "\[IndentingNewLine]", 
    RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], 
   "\[IndentingNewLine]", 
   "]"}]], "Code",ExpressionUUID->"60e33dcf-6aaa-41dd-acf3-e73e2b43ff0d"],
@@ -64,7 +64,7 @@ Cell[BoxData[
     "HyperlinkURL"], "]"}],
   CloudObject["https://www.wolframcloud.com/objects/kuba.pod/mvue/beta/app"],
   SelectWithContents->
-   True]], "Output",ExpressionUUID->"a386ec2a-c3f7-460b-8afc-3c1782fa5962"]
+   True]], "Output",ExpressionUUID->"4fc0dbb1-037b-4e5f-87fa-a46c54a2e122"]
 }, Open  ]]
 },
 WindowSize->{826, 703},

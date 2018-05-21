@@ -17,7 +17,7 @@
 
 (* 
      TODO:
-       - option: continuous action          
+       
        - support for basic controllers
          + slider
          + popup menu
@@ -28,12 +28,10 @@
            - setter         
          
        - error handling
-       - option: content type png/html
-       
+       - option: content type png/html       
        - SymbolName encoding/form?
        
-       - merge vuetify props if provided
-       
+       - merge vuetify props if provided      
    
        - dependency tree for body and dynamic structure at the end.
        - error handling for api function
@@ -209,7 +207,7 @@ VControl[{{var_Symbol, init_, lbl_String},items:{True,False},rest___}]:= <|
 VControl[___]:=$Failed;
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*ManipulateBlock*)
 
 
@@ -224,6 +222,7 @@ ManipulateBlock // Attributes = HoldAll;
 ManipulateBlock[{varSpec:({_Symbol, __}|{{_Symbol, __}, __} )..}]:=Module[
   {vars}
 , vars = Hold[varSpec] /. { {{s_Symbol, __}, __}:> s, {s_Symbol, __}:>s}
+; vars = DeleteDuplicates @ vars
 ; vars /. Hold[vars__]:> Function[expr, Block[{vars}, expr ], HoldAll]
 ];
 

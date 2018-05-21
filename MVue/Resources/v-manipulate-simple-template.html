@@ -4,6 +4,27 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
   <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <style>
+    .input-group {
+      padding: 0;
+        /*this one is here because prior to Vuetify 1.1 release 
+          there is an issue with an alignment of a v-slider[hide-contents]
+        */ 
+    }
+
+      /*v-select menu*/
+    .input-group label {
+      font-size: 14px;
+    }
+    .input-group--select .input-group__selections__comma {
+      font-size: 14px;
+    }
+    .list__tile {
+      font-size: 14px;
+      
+    } 
+    
+  </style>
 </head>
 <body>
    <script src="https://unpkg.com/vue/dist/vue.js"></script> 
@@ -14,7 +35,7 @@
   <div id="app">
     <v-app>
       <v-content>
-        <v-container grid-list-md text-xs-center>
+        <v-container grid-list-md text-xs-center class="body-2">
           <v-layout row wrap>
             
             <v-flex md4>                    
@@ -26,14 +47,16 @@
                   class="elevation-1"
                 >
                   <template slot="items" slot-scope="props">      
-                    <td class="text-xs-right">{{ props.item.label || props.item.name }}</td>
-                    <td class="text-xs-center" width='100%'>
-                      <div 
+                    <td class="text-xs-left">{{ props.item.label || props.item.name }}</td>
+                    <td class="text-xs-left" width='100%'>
+                      <component 
                           :is = 'props.item.type' 
+                          hide-details
+
                           v-model = 'variables[props.item.name]'                             
                           v-bind = 'props.item.spec'  
                           v-on = 'props.item.events || {}'
-                      ></div> 
+                      ></component> 
                     </td>
                   </template>
                 </v-data-table>
