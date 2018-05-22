@@ -22,6 +22,7 @@
          + slider
          + popup menu
          + checkbox
+         - labeled items for select-like controllers
          - via ControlType
            - input field
            - toggler
@@ -38,7 +39,7 @@
 *)
 
 
-(* ::Chapter::Closed:: *)
+(* ::Chapter:: *)
 (*Export*)
 
 
@@ -59,6 +60,9 @@ Begin["`Private`"];
 
 
 $resources = FileNameJoin[{DirectoryName[$InputFileName /. "" :> NotebookFileName[]], "Resources"}];
+
+
+$jsonAtoms = True | False | Null | _String | _?NumberQ
 
 
 (* ::Section:: *)
@@ -89,7 +93,7 @@ MVue[___]:=(Message[MVue::argpatt]; $Failed)
 
 
 VManipulate // Options = {
-  ContinuousAction -> False
+  ContinuousAction -> False  
 };  
 
 
@@ -99,33 +103,33 @@ VManipulate[
   , varSpec : ({_Symbol, __}|{{_Symbol, __}, __} ) ..
   , opts    : OptionsPattern[]
   ]
-, vopts : OptionsPattern[]
+, vopts : ___?OptionQ
 ]:=Module[  {  config}
 
 , config = KeyMap[ Decapitalize @* ToString ] @ <|    
     Options[VManipulate]
-  , vopts   
+  , FilterRules[{vopts}, Options[VManipulate]]   
   , FilterRules[{opts}, Options[VManipulate]]  
   |>
   
 ; VManipulate @ ManipulateBlock[{varSpec},
     <|"controllers" -> VControl /@ {varSpec}
-    , "bodyFunction" -> ManipulateAPIFunction[body, varSpec]
+    , "bodyFunction" -> ManipulateAPIFunction[body, varSpec, Evaluate[Sequence @@ FilterRules[{vopts}, Options @ ManipulateAPIFunction]]]
     , config
     |>
   ]
 ];
 
 
-VManipulate /: CloudDeploy[vm_VManipulate, path_String, rest___]:= Catch @ Module[
-  {app, api}
+VManipulate /: CloudDeploy[vm_VManipulate, HoldPattern[p_String : CreateUUID[]], rest:OptionsPattern[]]:= Catch @ Module[
+  {app, api, path = p}
 , app = Import[ FileNameJoin[{$resources, "v-manipulate-simple-template.html"}]  , "Text"]
 ; app = StringTemplate[  app ] @ StringJoin[
     "`"
   , Check[ExportString[  KeyDrop["bodyFunction"] @ First @ vm, "RawJSON", "Compact"->True], Throw[$Failed]]
   , "`"
   ] 
-; app = CloudExport[app, "HTML", path <> "/app", rest]   
+; app = CloudExport[app, "HTML", path <> "/index.html", rest]   
 
 ; api = APIFunction[{}, Evaluate @ vm[[1, "bodyFunction"]]]
 ; api = CloudDeploy[api, path<>"/bodyAPI", rest]
@@ -134,7 +138,7 @@ VManipulate /: CloudDeploy[vm_VManipulate, path_String, rest___]:= Catch @ Modul
 ]
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*VControl*)
 
 
@@ -149,7 +153,7 @@ VManipulate /: CloudDeploy[vm_VManipulate, path_String, rest___]:= Catch @ Modul
 VControl[{{var_Symbol, init_}, rest___}]:=VControl[{{var, init, SymbolName[var]}, rest}]
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*sliders*)
 
 
@@ -176,10 +180,10 @@ VControl[
 (*selects*)
 
 
-VControl[{var_Symbol,items_List,rest___}]:=VControl[{{var, items[[1]]}, items,rest}]
+VControl[{var_Symbol,items: { $jsonAtoms... }, rest___}]:=VControl[{{var, items[[1]]}, items,rest}]
 
 
-VControl[{{var_Symbol, init_, lbl_String},items_List,rest___}]:= <|
+VControl[{{var_Symbol, init_, lbl: $jsonAtoms}, items: {$jsonAtoms...},rest___}]:= <|
   "name" -> SymbolName[var]
 , "lable"->lbl
 , "init" -> init
@@ -207,7 +211,7 @@ VControl[{{var_Symbol, init_, lbl_String},items:{True,False},rest___}]:= <|
 VControl[___]:=$Failed;
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*ManipulateBlock*)
 
 
@@ -230,7 +234,7 @@ ManipulateBlock[{varSpec:({_Symbol, __}|{{_Symbol, __}, __} )..}]:=Module[
 ManipulateBlock[varSpec_, expr_]:=ManipulateBlock[varSpec][expr]
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*ManipulateAPIFunction*)
 
 
@@ -240,8 +244,15 @@ ManipulateAPIFunction::usage = "Generates a function to be used in behind VManip
 ManipulateAPIFunction // Attributes = HoldAll;
 
 
-ManipulateAPIFunction[body_, varSpec__]:= With[
-  { block = ManipulateBlock[{varSpec}] }
+ManipulateAPIFunction // Options = {
+  "ExportFunction" -> Automatic  
+};
+
+
+ManipulateAPIFunction[body_, varSpec__List, opts:OptionsPattern[]]:= With[
+  { block = ManipulateBlock[{varSpec}]
+  , exportFunction = resolveExportFunction @ OptionValue @ "ExportFunction" 
+  }
 , Function @ block[  
     Module[
      { data = ImportString[FromCharacterCode @ HTTPRequestData[]["BodyBytes"],"RawJSON"]
@@ -257,9 +268,16 @@ ManipulateAPIFunction[body_, varSpec__]:= With[
    ; result = body
    
       (*formatting*) 
-   ; ExportString[body, "HTMLFragment"]]
+   ; exportFunction @ body
    ]
+ ]
 ]
+
+
+resolveExportFunction[ s_String /; MemberQ[$ExportFormats, s] ]:=Function[b, ExportString[b, s]]
+resolveExportFunction[foo: (_Symbol | _Function)]:=foo;
+resolveExportFunction[(*Automatic or incorrect*)]:=Function[b, ExportString[b, "HTMLFragment"]]
+(*TODO: more verbose handling of an invalid value*)
 
 
 (* ::Chapter::Closed:: *)
