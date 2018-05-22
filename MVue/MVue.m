@@ -129,7 +129,7 @@ VManipulate /: CloudDeploy[vm_VManipulate, HoldPattern[p_String : CreateUUID[]],
   , Check[ExportString[  KeyDrop["bodyFunction"] @ First @ vm, "RawJSON", "Compact"->True], Throw[$Failed]]
   , "`"
   ] 
-; app = CloudExport[app, "HTML", path <> "/index.html", rest]   
+; app = CloudExport[app, "HTML", path <> "/app", rest]   
 
 ; api = APIFunction[{}, Evaluate @ vm[[1, "bodyFunction"]]]
 ; api = CloudDeploy[api, path<>"/bodyAPI", rest]
@@ -138,7 +138,7 @@ VManipulate /: CloudDeploy[vm_VManipulate, HoldPattern[p_String : CreateUUID[]],
 ]
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*VControl*)
 
 
@@ -153,7 +153,7 @@ VManipulate /: CloudDeploy[vm_VManipulate, HoldPattern[p_String : CreateUUID[]],
 VControl[{{var_Symbol, init_}, rest___}]:=VControl[{{var, init, SymbolName[var]}, rest}]
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*sliders*)
 
 
@@ -172,7 +172,7 @@ VControl[
 , "label" -> label
 , "init" -> initial
 , "type" -> "v-slider"
-, "spec" -> <|"min" -> min, "max" -> max, "step" -> step|>  
+, "spec" -> <|"min" -> min, "max" -> max, "step" -> step, "thumb-label" -> True|>  
 |>
 
 
@@ -234,7 +234,7 @@ ManipulateBlock[{varSpec:({_Symbol, __}|{{_Symbol, __}, __} )..}]:=Module[
 ManipulateBlock[varSpec_, expr_]:=ManipulateBlock[varSpec][expr]
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*ManipulateAPIFunction*)
 
 
@@ -274,9 +274,13 @@ ManipulateAPIFunction[body_, varSpec__List, opts:OptionsPattern[]]:= With[
 ]
 
 
+$defaultExportFunction = Function[b, ExportString[b, "HTMLFragment"]];
+
+
+resolveExportFunction[Automatic]:=$defaultExportFunction;
 resolveExportFunction[ s_String /; MemberQ[$ExportFormats, s] ]:=Function[b, ExportString[b, s]]
 resolveExportFunction[foo: (_Symbol | _Function)]:=foo;
-resolveExportFunction[(*Automatic or incorrect*)]:=Function[b, ExportString[b, "HTMLFragment"]]
+resolveExportFunction[___]:=$defaultExportFunction;
 (*TODO: more verbose handling of an invalid value*)
 
 

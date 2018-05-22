@@ -1,6 +1,12 @@
 Notebook[{
+Cell[BoxData[
+ RowBox[{"CreoCloud", "[", 
+  RowBox[{"\"\<test\>\"", ",", 
+   RowBox[{
+    RowBox[{"CloudDisconnect", "[", "]"}], ";", 
+    RowBox[{"CloudConnect", "[", "]"}]}]}], "]"}]], "Input",
+ CellLabel->"In[4]:=",ExpressionUUID->"dbdaea15-a3e2-4254-ac1a-cfb205ff01d7"],
 
-Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"CloudDeploy", "[", "\[IndentingNewLine]", 
   RowBox[{
@@ -72,190 +78,8 @@ Cell[BoxData[
       RowBox[{"ContinuousAction", "\[Rule]", "False"}]}], "\n", "]"}]}], ",", 
    "\[IndentingNewLine]", "\"\<mvue/beta\>\"", ",", "\[IndentingNewLine]", 
    RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], 
-  "\[IndentingNewLine]", 
-  "]"}]], "Code",ExpressionUUID->"60e33dcf-6aaa-41dd-acf3-e73e2b43ff0d"],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"CloudObject", "[", 
-   TemplateBox[{
-    "\"https://www.wolframcloud.com/objects/kuba.pod/mvue/beta/app\"",
-     "https://www.wolframcloud.com/objects/kuba.pod/mvue/beta/app"},
-    "HyperlinkURL"], "]"}],
-  CloudObject["https://www.wolframcloud.com/objects/kuba.pod/mvue/beta/app"],
-  SelectWithContents->
-   True]], "Output",ExpressionUUID->"1040ad80-58e2-40f9-ae9e-c3f7c3b8d199"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"MVue", "[", " ", 
-  RowBox[{"Manipulate", "[", "  ", 
-   RowBox[{"x", ",", " ", 
-    RowBox[{"{", 
-     RowBox[{"x", ",", "5", ",", "10", ",", "1"}], "}"}], ",", " ", 
-    RowBox[{"{", 
-     RowBox[{"x", ",", "5", ",", "10", ",", "1"}], "}"}], ",", 
-    RowBox[{"ContinuousAction", "\[Rule]", "Automatic"}]}], "]"}], 
-  "]"}]], "Input",ExpressionUUID->"d6b3a1ff-c55c-47a1-9128-65b852bcf31c"],
-
-Cell[BoxData[
- RowBox[{"VManipulate", "[", 
-  RowBox[{"\[LeftAssociation]", 
-   RowBox[{
-    RowBox[{"\<\"controllers\"\>", "\[Rule]", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"\[LeftAssociation]", 
-        RowBox[{
-         RowBox[{"\<\"name\"\>", "\[Rule]", "\<\"x\"\>"}], ",", 
-         RowBox[{"\<\"label\"\>", "\[Rule]", "\<\"x\"\>"}], ",", 
-         RowBox[{"\<\"init\"\>", "\[Rule]", "5"}], ",", 
-         RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"v-slider\"\>"}], ",", 
-         RowBox[{"\<\"spec\"\>", "\[Rule]", 
-          RowBox[{"\[LeftAssociation]", 
-           RowBox[{
-            RowBox[{"\<\"min\"\>", "\[Rule]", "5"}], ",", 
-            RowBox[{"\<\"max\"\>", "\[Rule]", "10"}], ",", 
-            RowBox[{"\<\"step\"\>", "\[Rule]", "1"}]}], 
-           "\[RightAssociation]"}]}]}], "\[RightAssociation]"}], ",", 
-       RowBox[{"\[LeftAssociation]", 
-        RowBox[{
-         RowBox[{"\<\"name\"\>", "\[Rule]", "\<\"x\"\>"}], ",", 
-         RowBox[{"\<\"label\"\>", "\[Rule]", "\<\"x\"\>"}], ",", 
-         RowBox[{"\<\"init\"\>", "\[Rule]", "5"}], ",", 
-         RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"v-slider\"\>"}], ",", 
-         RowBox[{"\<\"spec\"\>", "\[Rule]", 
-          RowBox[{"\[LeftAssociation]", 
-           RowBox[{
-            RowBox[{"\<\"min\"\>", "\[Rule]", "5"}], ",", 
-            RowBox[{"\<\"max\"\>", "\[Rule]", "10"}], ",", 
-            RowBox[{"\<\"step\"\>", "\[Rule]", "1"}]}], 
-           "\[RightAssociation]"}]}]}], "\[RightAssociation]"}]}], "}"}]}], 
-    ",", 
-    RowBox[{"\<\"bodyFunction\"\>", "\[Rule]", 
-     RowBox[{"(", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"Function", "[", 
-         RowBox[{"MVue`Private`expr$", ",", 
-          RowBox[{"Block", "[", 
-           RowBox[{
-            RowBox[{"{", "x", "}"}], ",", "MVue`Private`expr$"}], "]"}], ",", 
-          "HoldAll"}], "]"}], "[", 
-        RowBox[{"Module", "[", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"MVue`Private`data$", "=", 
-             RowBox[{"ImportString", "[", 
-              RowBox[{
-               RowBox[{"FromCharacterCode", "[", 
-                RowBox[{
-                 RowBox[{"HTTPRequestData", "[", "]"}], 
-                 "[", "\<\"BodyBytes\"\>", "]"}], "]"}], 
-               ",", "\<\"RawJSON\"\>"}], "]"}]}], ",", 
-            "MVue`Private`result$"}], "}"}], ",", 
-          RowBox[{
-           RowBox[{"KeyValueMap", "[", 
-            RowBox[{
-             RowBox[{"Function", "[", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"MVue`Private`key", ",", "MVue`Private`value"}], 
-                "}"}], ",", 
-               RowBox[{"ToExpression", "[", 
-                RowBox[{"MVue`Private`key", ",", "StandardForm", ",", 
-                 RowBox[{"Function", "[", 
-                  RowBox[{"MVue`Private`sym", ",", 
-                   RowBox[{"MVue`Private`sym", "=", "MVue`Private`value"}], 
-                   ",", "HoldFirst"}], "]"}]}], "]"}]}], "]"}], ",", 
-             "MVue`Private`data$"}], "]"}], ";", 
-           RowBox[{"MVue`Private`result$", "=", "x"}], ";", 
-           RowBox[{"ExportString", "[", 
-            RowBox[{"x", ",", "\<\"HTMLFragment\"\>"}], "]"}]}]}], "]"}], 
-        "]"}], "&"}], ")"}]}], ",", 
-    RowBox[{"\<\"continuousAction\"\>", "\[Rule]", "Automatic"}]}], 
-   "\[RightAssociation]"}], 
-  "]"}]], "Output",ExpressionUUID->"c2ce0681-7375-4bcc-8533-dce8e9650cbf"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"CloudDeploy", "[", "\[IndentingNewLine]", 
-  RowBox[{
-   RowBox[{"MVue", " ", "@", " ", 
-    RowBox[{"Manipulate", "[", "  ", 
-     RowBox[{"x", ",", " ", 
-      RowBox[{"{", 
-       RowBox[{"x", ",", "5", ",", "10", ",", "1"}], "}"}], ",", " ", 
-      RowBox[{"{", 
-       RowBox[{"x", ",", "5", ",", "10", ",", "1"}], "}"}], ",", 
-      RowBox[{"ContinuousAction", "\[Rule]", "True"}], ",", 
-      RowBox[{"Initialization", "\[RuleDelayed]", "Automatic"}]}], "]"}]}], 
-   ",", "\[IndentingNewLine]", "\"\<mvue/beta\>\"", ",", 
-   "\[IndentingNewLine]", 
-   RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], 
-  "\[IndentingNewLine]", 
-  "]"}]], "Input",ExpressionUUID->"8454901f-1b8d-4ee7-a7c0-7861d2fe7da9"],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"CloudObject", "[", 
-   TemplateBox[{
-    "\"https://www.wolframcloud.com/objects/kuba.pod/mvue/beta/app\"",
-     "https://www.wolframcloud.com/objects/kuba.pod/mvue/beta/app"},
-    "HyperlinkURL"], "]"}],
-  CloudObject["https://www.wolframcloud.com/objects/kuba.pod/mvue/beta/app"],
-  SelectWithContents->
-   True]], "Output",ExpressionUUID->"41df3893-a81b-406d-b914-2800098b408b"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Manipulate", "[", "  ", 
-  RowBox[{
-   RowBox[{"x", "+", "1"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"{", 
-     RowBox[{"x", ",", "1"}], "}"}], "}"}]}], 
-  "]"}]], "Input",ExpressionUUID->"a3a6dfb7-8542-4d0a-be55-fd2663649642"],
-
-Cell[BoxData[
- TagBox[
-  StyleBox[
-   DynamicModuleBox[{$CellContext`x$$ = 2, Typeset`show$$ = True, 
-    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{{
-       Hold[$CellContext`x$$], 1}}}, Typeset`size$$ = {7., {0., 8.}}, 
-    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
-    DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, "Variables" :> {$CellContext`x$$ = 1}, 
-      "ControllerVariables" :> {}, 
-      "OtherVariables" :> {
-       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
-        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
-        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
-         Typeset`skipInitDone$$}, "Body" :> $CellContext`x$$ + 1, 
-      "Specifications" :> {{{$CellContext`x$$, 1}}}, "Options" :> {}, 
-      "DefaultOptions" :> {}],
-     ImageSizeCache->{256., {48., 55.}},
-     SingleEvaluation->True],
-    Deinitialization:>None,
-    DynamicModuleValues:>{},
-    SynchronousInitialization->True,
-    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
-    UnsavedVariables:>{Typeset`initDone$$},
-    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
-   Deployed->True,
-   StripOnInput->False],
-  Manipulate`InterpretManipulate[
-  1]]], "Output",ExpressionUUID->"cee0ec34-c1db-4def-832c-c0c5e0c958a8"]
-}, Open  ]],
+  "\[IndentingNewLine]", "]"}]], "Code",
+ CellLabel->"In[27]:=",ExpressionUUID->"60e33dcf-6aaa-41dd-acf3-e73e2b43ff0d"],
 
 Cell[CellGroupData[{
 
@@ -265,22 +89,12 @@ Cell["examples", \
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"CloudConnect", "[", 
-  "]"}]], "Input",ExpressionUUID->"b88059f3-a62f-4113-99ec-064613253547"],
-
-Cell[BoxData["\<\"kuba.pod@gmail.com\"\>"], \
-"Output",ExpressionUUID->"00d9c2b3-079e-4170-83cb-9365277094de"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
  RowBox[{"CloudDeploy", "[", "\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{"MVue", "[", "\[IndentingNewLine]", 
-    RowBox[{"\"\<ExportFunction\>\"", "\[Rule]", "\"\<SVG\>\""}], 
-    "\[IndentingNewLine]", "]"}], "@", " ", 
-   RowBox[{"Manipulate", "[", 
+   RowBox[{"MVue", "[", 
+    RowBox[{"\"\<ExportFunction\>\"", "\[Rule]", "\"\<SVG\>\""}], "]"}], "@", 
+   " ", 
+   RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"LogLogPlot", "[", 
       RowBox[{
@@ -328,134 +142,18 @@ Cell[BoxData[
          RowBox[{
           RowBox[{"10", "^", "b"}], ",", 
           RowBox[{"{", 
-           RowBox[{"b", ",", "1", ",", "5", ",", "1"}], "}"}]}], "]"}]}], ",", 
-       RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}], ",", 
+           RowBox[{"b", ",", "1", ",", "5", ",", "1"}], "}"}]}], "]"}]}]}], 
+      "]"}], ",", 
      RowBox[{"{", 
       RowBox[{
        RowBox[{"{", 
-        RowBox[{"c", ",", ".01"}], "}"}], ",", "0", ",", ".1"}], "}"}]}], 
-    "]"}]}], "\[IndentingNewLine]", 
-  "]"}]], "Input",ExpressionUUID->"2dbc60a5-9658-454f-a539-8e4cd9f7a4ad"],
+        RowBox[{"c", ",", 
+         RowBox[{"1", "/", "100"}]}], "}"}], ",", "0", ",", ".1"}], "}"}]}], 
+    "]"}]}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellLabel->"In[14]:=",ExpressionUUID->"5d1e780e-d27e-4bdb-8ffa-4c14358a5aed"],
 
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"CloudObject", "[", 
-   TemplateBox[{
-    "\"https://www.wolframcloud.com/objects/kuba.pod/be85dd4b-2535-485b-aef5-\
-26b3d1c280d8/app\"",
-     "https://www.wolframcloud.com/objects/kuba.pod/be85dd4b-2535-485b-aef5-\
-26b3d1c280d8/app"},
-    "HyperlinkURL"], "]"}],
-  CloudObject[
-  "https://www.wolframcloud.com/objects/kuba.pod/be85dd4b-2535-485b-aef5-\
-26b3d1c280d8/app"],
-  SelectWithContents->
-   True]], "Output",ExpressionUUID->"81b41058-e658-4b22-8af3-b5ae16a3b4fa"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Manipulate", "[", 
-  RowBox[{
-   RowBox[{"LogLogPlot", "[", 
-    RowBox[{
-     RowBox[{"Evaluate", "[", 
-      RowBox[{"Table", "[", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"(", 
-          RowBox[{
-           RowBox[{"c", " ", 
-            RowBox[{"(", 
-             RowBox[{
-              RowBox[{"4.13*^19", " ", "a"}], "+", 
-              RowBox[{"4.13*^19", " ", "c"}]}], ")"}]}], "+", 
-           RowBox[{
-            RowBox[{"10", "^", "b"}], " ", 
-            RowBox[{"(", 
-             RowBox[{"1.36*^18", "+", 
-              RowBox[{"c", " ", 
-               RowBox[{"(", 
-                RowBox[{"1.36*^18", "+", 
-                 RowBox[{"4.15*^16", " ", "a"}], "+", 
-                 RowBox[{"4.15*^16", " ", "c"}]}], ")"}]}]}], ")"}]}]}], 
-          ")"}], "/", 
-         RowBox[{"(", 
-          RowBox[{
-           RowBox[{"2.05*^17", " ", "a"}], "+", 
-           RowBox[{"2.05*^17", " ", "c"}], "+", 
-           RowBox[{
-            RowBox[{"10", "^", "b"}], " ", 
-            RowBox[{"(", 
-             RowBox[{"6.82*^15", "+", 
-              RowBox[{"2.06*^14", " ", "a"}], "+", 
-              RowBox[{"2.06*^14", " ", "c"}]}], ")"}]}]}], ")"}]}], ",", 
-        RowBox[{"{", 
-         RowBox[{"b", ",", "1.", ",", "5", ",", "1"}], "}"}]}], "]"}], "]"}], 
-     ",", 
-     RowBox[{"{", 
-      RowBox[{"a", ",", 
-       RowBox[{"10", "^", 
-        RowBox[{"-", "3"}]}], ",", 
-       RowBox[{"10", "^", "3"}]}], "}"}], ",", 
-     RowBox[{"PlotLegends", "\[Rule]", 
-      RowBox[{"Table", "[", 
-       RowBox[{
-        RowBox[{"10", "^", "b"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"b", ",", "1", ",", "5", ",", "1"}], "}"}]}], "]"}]}], ",", 
-     RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}], ",", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"c", ",", ".01"}], "}"}], ",", "0", ",", ".1"}], "}"}]}], 
-  "]"}]], "Input",ExpressionUUID->"d4170276-8eec-4673-82c0-7a2305a253c3"],
-
-Cell[BoxData[
- TagBox[
-  StyleBox[
-   DynamicModuleBox[{$CellContext`c$$ = 0.011000000000000001`, 
-    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
-    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
-    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
-       Hold[$CellContext`c$$], 0.01}, 0, 0.1}}, Typeset`size$$ = {
-    450., {110., 117.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`c$10323$$ = 0}, 
-    DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, "Variables" :> {$CellContext`c$$ = 0.01}, 
-      "ControllerVariables" :> {
-        Hold[$CellContext`c$$, $CellContext`c$10323$$, 0]}, 
-      "OtherVariables" :> {
-       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
-        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
-        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
-         Typeset`skipInitDone$$}, "Body" :> LogLogPlot[
-        Evaluate[
-         Table[($CellContext`c$$ (4.13*^19 $CellContext`a + 
-             4.13*^19 $CellContext`c$$) + 
-           10^$CellContext`b (
-             1.36*^18 + $CellContext`c$$ (1.36*^18 + 4.15*^16 $CellContext`a + 
-               4.15*^16 $CellContext`c$$)))/(2.05*^17 $CellContext`a + 
-          2.05*^17 $CellContext`c$$ + 
-          10^$CellContext`b (6.82*^15 + 2.06*^14 $CellContext`a + 
-            2.06*^14 $CellContext`c$$)), {$CellContext`b, 1., 5, 
-           1}]], {$CellContext`a, 10^(-3), 10^3}, PlotLegends -> 
-        Table[10^$CellContext`b, {$CellContext`b, 1, 5, 1}], Frame -> True], 
-      "Specifications" :> {{{$CellContext`c$$, 0.01}, 0, 0.1}}, 
-      "Options" :> {}, "DefaultOptions" :> {}],
-     ImageSizeCache->{501., {157., 164.}},
-     SingleEvaluation->True],
-    Deinitialization:>None,
-    DynamicModuleValues:>{},
-    SynchronousInitialization->True,
-    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
-    UnsavedVariables:>{Typeset`initDone$$},
-    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
-   Deployed->True,
-   StripOnInput->False],
-  Manipulate`InterpretManipulate[
-  1]]], "Output",ExpressionUUID->"fe959867-17ff-4218-831e-69664db6925e"]
+Cell[BoxData["$Failed"], "Output",
+ CellLabel->"Out[14]=",ExpressionUUID->"af0941de-4b2a-4d2a-82b4-7b26eb2809aa"]
 }, Open  ]]
 }, Open  ]]
 },
@@ -463,7 +161,7 @@ WindowSize->{826, 703},
 WindowMargins->{{Automatic, 124}, {118, Automatic}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 TrackCellChangeTimes->False,
-FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
 StyleDefinitions->"Default.nb"
 ]
 
