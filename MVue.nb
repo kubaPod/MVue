@@ -7,8 +7,6 @@ Cell[BoxData[
     RowBox[{"CloudConnect", "[", "]"}]}]}], "]"}]], "Input",
  CellLabel->"In[4]:=",ExpressionUUID->"dbdaea15-a3e2-4254-ac1a-cfb205ff01d7"],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{"CloudDeploy", "[", "\[IndentingNewLine]", 
   RowBox[{
@@ -56,27 +54,51 @@ Cell[BoxData[
       RowBox[{"ContinuousAction", "\[Rule]", "False"}]}], "\n", "]"}]}], ",", 
    "\[IndentingNewLine]", "\"\<mvue/beta\>\"", ",", "\[IndentingNewLine]", 
    RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], 
-  "\[IndentingNewLine]", 
-  "]"}]], "Code",ExpressionUUID->"60e33dcf-6aaa-41dd-acf3-e73e2b43ff0d"],
+  "\[IndentingNewLine]", "]"}]], "Code",
+ CellLabel->"In[3]:=",ExpressionUUID->"60e33dcf-6aaa-41dd-acf3-e73e2b43ff0d"],
+
+Cell[CellGroupData[{
+
+Cell["dev", "Section",ExpressionUUID->"404f043b-7029-4f36-b452-278a01ea08d2"],
 
 Cell[BoxData[
- InterpretationBox[
-  RowBox[{"CloudObject", "[", 
-   TemplateBox[{
-    "\"https://www.wolframcloud.com/objects/kuba2/mvue/beta/app\"",
-     "https://www.wolframcloud.com/objects/kuba2/mvue/beta/app"},
-    "HyperlinkURL"], "]"}],
-  CloudObject["https://www.wolframcloud.com/objects/kuba2/mvue/beta/app"],
-  SelectWithContents->True]], "Output",
- CellLabel->"Out[2]=",ExpressionUUID->"cf096603-5553-47fb-9c05-02d07d4405b4"]
+ RowBox[{"Needs", "[", "\"\<GitLink`\>\"", "]"}]], "Input",
+ CellLabel->"In[4]:=",ExpressionUUID->"781dd92d-99e2-4289-ade9-5717f481c322"],
+
+Cell[BoxData[
+ RowBox[{"repo", "=", 
+  RowBox[{"GitOpen", "@", 
+   RowBox[{"NotebookDirectory", "[", "]"}]}]}]], "Input",
+ CellLabel->"In[6]:=",ExpressionUUID->"848a87b5-30d1-4890-9744-a4beb4d11a94"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GitAdd", "[", 
+   RowBox[{"repo", ",", 
+    RowBox[{"Lookup", "[", 
+     RowBox[{
+      RowBox[{"GitStatus", "[", "repo", "]"}], ",", "\"\<Modified\>\"", ",", 
+      RowBox[{"{", "}"}]}], "]"}]}], "]"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"git", " ", "add"}], " ", "-", "u"}], "*)"}]}]], "Input",
+ CellLabel->"In[25]:=",ExpressionUUID->"12c5ca6e-28c7-48b9-89a7-baf47f1d1d61"],
+
+Cell[BoxData[
+ RowBox[{"GitCommit", "[", 
+  RowBox[{"repo", ",", 
+   RowBox[{"Echo", "@", 
+    RowBox[{"InputString", "[", "]"}]}]}], "]"}]], "Input",
+ CellLabel->"In[26]:=",ExpressionUUID->"c051b44a-e409-46b3-96b1-8293d6cf9239"]
 }, Open  ]],
+
+Cell["release", \
+"Section",ExpressionUUID->"db390a25-d7c5-47de-be76-74a23245b970"],
 
 Cell[CellGroupData[{
 
 Cell["examples", \
 "Section",ExpressionUUID->"aa1f59a5-7a3e-4735-b0f6-aa9ecb4f73be"],
-
-Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"CloudDeploy", "[", "\[IndentingNewLine]", 
@@ -133,22 +155,19 @@ Cell[BoxData[
           RowBox[{"10", "^", "b"}], ",", 
           RowBox[{"{", 
            RowBox[{"b", ",", "1", ",", "5", ",", "1"}], "}"}]}], "]"}]}]}], 
-      "]"}], ",", 
+      "]"}], ",", "\[IndentingNewLine]", 
      RowBox[{"{", 
       RowBox[{
        RowBox[{"{", 
         RowBox[{"c", ",", 
          RowBox[{"1", "/", "100"}]}], "}"}], ",", "0", ",", ".1"}], "}"}]}], 
-    "]"}]}], "\[IndentingNewLine]", "]"}]], "Input",
- CellLabel->"In[14]:=",ExpressionUUID->"5d1e780e-d27e-4bdb-8ffa-4c14358a5aed"],
-
-Cell[BoxData["$Failed"], "Output",
- CellLabel->"Out[14]=",ExpressionUUID->"af0941de-4b2a-4d2a-82b4-7b26eb2809aa"]
-}, Open  ]]
+    "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellLabel->"In[27]:=",ExpressionUUID->"5d1e780e-d27e-4bdb-8ffa-4c14358a5aed"]
 }, Open  ]]
 },
 WindowSize->{826, 703},
-WindowMargins->{{324, Automatic}, {Automatic, 206}},
+WindowMargins->{{-1243, Automatic}, {Automatic, 263}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 TrackCellChangeTimes->False,
 FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
