@@ -4,7 +4,7 @@ Tools for creating Wolfram Cloud Objects with Vue.js based interfaces.
 
 # Background
 
-The idea is that `CloudDeploy[Vue[...]]` should generate a Vue.js based interface boundled with automatically generated Wolfram Cloud APIs.
+The idea is that `CloudDeploy[Vue[...]]` should generate a Vue.js based interface bundled with automatically generated Wolfram Cloud APIs.
 
 It is NOT meant as a replacement for default `CloudDeploy` but rather a way to create more responsive / user friendly interface for simple use cases where default methods look overly sluggish since they need to support all 'types' and various typesetting features of Mathematica.
 
