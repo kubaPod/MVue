@@ -123,13 +123,13 @@
         app.config = JSON.parse(``);
         
           // global watch in case of cont action
-        if(app.config.continuousAction) {
-          app.$watch(
-            'variables', 
-             function(val) { app.updating ? null : app.refreshBody(); },
-             { deep: true }
-          )
-        };
+        // if(app.config.continuousAction) {
+        //   app.$watch(
+        //     'variables', 
+        //      function(val) { app.updating ? null : app.refreshBody(); },
+        //      { deep: true }
+        //   )
+        // };
           
         app.config.controllers.map( 
           function(controller) { 
@@ -140,11 +140,16 @@
             app.variables[controller.name] = controller.init;
 
             // how refreshBody is triggered by given controller
-            if(!app.config.continuousAction) { 
-               controller.events = controller.type === "v-slider" 
-                    //maybe that is stupid but could not find anything better. and ondragend does not work
-                  ? { click: app.refreshBody }  
-                  : { change: app.refreshBody } 
+            if(app.config.continuousAction) {
+              app.$watch(
+                'variables', 
+                 function(val) { app.updating ? null : app.refreshBody(); },
+                 { deep: true }
+              )
+            } else if(controller.type === "v-slider") {                
+               controller.events = { click: app.refreshBody }  // not perfect but it will be addressed in Vuetify 1.1, which currently is in alpha stage
+            } else {
+               app.$watch('variables.' + controller.name, app.refreshBody) // it seems it is the only way to trigger after 'change' event
             }
           }
         );
