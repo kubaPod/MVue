@@ -1,37 +1,29 @@
 Notebook[{
+
+Cell[CellGroupData[{
 Cell[BoxData[
- RowBox[{"CreoCloud", "[", 
-  RowBox[{"\"\<test\>\"", ",", 
-   RowBox[{
-    RowBox[{"CloudDisconnect", "[", "]"}], ";", 
-    RowBox[{"CloudConnect", "[", "]"}]}]}], "]"}]], "Input",
- CellLabel->"In[4]:=",ExpressionUUID->"dbdaea15-a3e2-4254-ac1a-cfb205ff01d7"],
+ RowBox[{"PacletDirectoryAdd", "@", 
+  RowBox[{"NotebookDirectory", "[", "]"}]}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"f09cc8d7-ce30-411b-815d-09b6508880bd"],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"C:\\\\Users\\\\Kuba\\\\IdeaProjects\\\\MVue\\\\\"\>", 
+  "}"}]], "Output",
+ CellLabel->"Out[1]=",ExpressionUUID->"bc6c750b-9933-4c1a-bfcb-c5d680a64998"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Needs", "@", "\"\<MVue`\>\""}]], "Input",
+ CellLabel->"In[2]:=",ExpressionUUID->"2023bad2-2c6b-4757-a91a-97f19bb2b761"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"CloudDeploy", "[", "\[IndentingNewLine]", 
   RowBox[{
    RowBox[{"MVue", " ", "@", " ", 
     RowBox[{"Manipulate", "[", "\n", "  ", 
-     RowBox[{
-      RowBox[{"Graphics", "[", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"Rectangle", "[", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"-", "10"}], ",", 
-              RowBox[{"-", "10"}]}], "}"}], ",", 
-            RowBox[{"{", 
-             RowBox[{"y", ",", "y"}], "}"}]}], "]"}], ",", "Red", ",", 
-          "Thick", ",", 
-          RowBox[{"Circle", "[", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{"0", ",", "0"}], "}"}], ",", "x"}], "]"}]}], "}"}], ",", 
-        RowBox[{"PlotRange", "\[Rule]", "10"}], ",", 
-        RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}], "\n", ",", " ", 
+     RowBox[{"z", "\n", ",", " ", 
       RowBox[{"{", 
        RowBox[{"x", ",", "5", ",", "10", ",", "1"}], "}"}], "\n", ",", " ", 
       RowBox[{"{", 
@@ -55,7 +47,19 @@ Cell[BoxData[
    "\[IndentingNewLine]", "\"\<mvue/beta\>\"", ",", "\[IndentingNewLine]", 
    RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], 
   "\[IndentingNewLine]", "]"}]], "Code",
- CellLabel->"In[3]:=",ExpressionUUID->"60e33dcf-6aaa-41dd-acf3-e73e2b43ff0d"],
+ CellLabel->"In[5]:=",ExpressionUUID->"60e33dcf-6aaa-41dd-acf3-e73e2b43ff0d"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"CloudObject", "[", 
+   TemplateBox[{
+    "\"https://www.wolframcloud.com/objects/kuba.pod/mvue/beta/app\"",
+     "https://www.wolframcloud.com/objects/kuba.pod/mvue/beta/app"},
+    "HyperlinkURL"], "]"}],
+  CloudObject["https://www.wolframcloud.com/objects/kuba.pod/mvue/beta/app"],
+  SelectWithContents->True]], "Output",
+ CellLabel->"Out[5]=",ExpressionUUID->"0c380be0-6672-46d6-ad32-5419ba005024"]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -63,13 +67,54 @@ Cell["dev", "Section",ExpressionUUID->"404f043b-7029-4f36-b452-278a01ea08d2"],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<GitLink`\>\"", "]"}]], "Input",
- CellLabel->"In[4]:=",ExpressionUUID->"781dd92d-99e2-4289-ade9-5717f481c322"],
+ CellLabel->"In[6]:=",ExpressionUUID->"781dd92d-99e2-4289-ade9-5717f481c322"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"repo", "=", 
   RowBox[{"GitOpen", "@", 
    RowBox[{"NotebookDirectory", "[", "]"}]}]}]], "Input",
- CellLabel->"In[28]:=",ExpressionUUID->"848a87b5-30d1-4890-9744-a4beb4d11a94"],
+ CellLabel->"In[7]:=",ExpressionUUID->"848a87b5-30d1-4890-9744-a4beb4d11a94"],
+
+Cell[BoxData[
+ TemplateBox[{RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+       RowBox[{"\"BareQ\"", "\[Rule]", "False"}], ",", 
+       RowBox[{
+        "\"GitDirectory\"", "\[Rule]", 
+         "\"C:\\\\Users\\\\Kuba\\\\IdeaProjects\\\\MVue\\\\.git\\\\\""}], ",", 
+       RowBox[{
+        "\"WorkingDirectory\"", "\[Rule]", 
+         "\"C:\\\\Users\\\\Kuba\\\\IdeaProjects\\\\MVue\\\\\""}]}], 
+     "\[RightAssociation]"}]},
+  "GitRepo",
+  DisplayFunction->(TooltipBox[
+    PanelBox[
+     GridBox[{{
+        GraphicsBox[{
+          EdgeForm[
+           GrayLevel[0.5]], 
+          GrayLevel[0.5], 
+          Thickness[0.1], 
+          LineBox[{{0, 0}, {5, 0}}], 
+          LineBox[{{0, 0}, {5, -3}}], 
+          GrayLevel[0.85], 
+          DiskBox[{0, 0}, 1], 
+          DiskBox[{5, 0}, 1], 
+          RGBColor[0, 1, 0], 
+          DiskBox[{5, -3}, 1]}, ImageSize -> 15], 
+        "\"C:\\\\Users\\\\Kuba\\\\IdeaProjects\\\\MVue\\\\\""}}, 
+      BaselinePosition -> {1, 2}], FrameMargins -> 5, BaselinePosition -> 
+     Baseline], 
+    "GitRepo[<|\"BareQ\" -> False, \"GitDirectory\" -> \
+\"C:\\\\Users\\\\Kuba\\\\IdeaProjects\\\\MVue\\\\.git\\\\\", \
+\"WorkingDirectory\" -> \
+\"C:\\\\Users\\\\Kuba\\\\IdeaProjects\\\\MVue\\\\\"|>]"]& )]], "Output",
+ CellLabel->"Out[7]=",ExpressionUUID->"ac114736-c250-44d7-98fd-23a511f32888"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -82,14 +127,61 @@ Cell[BoxData[
   RowBox[{"(*", 
    RowBox[{
     RowBox[{"git", " ", "add"}], " ", "-", "u"}], "*)"}]}]], "Input",
- CellLabel->"In[29]:=",ExpressionUUID->"12c5ca6e-28c7-48b9-89a7-baf47f1d1d61"],
+ CellLabel->"In[10]:=",ExpressionUUID->"12c5ca6e-28c7-48b9-89a7-baf47f1d1d61"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"MVue\\\\PacletInfo.m\"\>", ",", "\<\"README.md\"\>"}], 
+  "}"}]], "Output",
+ CellLabel->"Out[10]=",ExpressionUUID->"22159f1c-b3c9-4620-bca7-2b8f7eb6626d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"GitCommit", "[", 
   RowBox[{"repo", ",", 
    RowBox[{"Echo", "@", 
     RowBox[{"InputString", "[", "]"}]}]}], "]"}]], "Input",
- CellLabel->"In[30]:=",ExpressionUUID->"c051b44a-e409-46b3-96b1-8293d6cf9239"]
+ CellLabel->"In[11]:=",ExpressionUUID->"c051b44a-e409-46b3-96b1-8293d6cf9239"],
+
+Cell[BoxData["\<\"fix(readme) typos\"\>"], \
+"Echo",ExpressionUUID->"a38e82fe-63c0-4044-ade7-e3835f6318ef"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TooltipBox[
+    FrameBox[
+     TemplateBox[{
+      StyleBox["\"Commit\"", Italic, StripOnInput -> False],"\": \"",
+       "\"f879a091\"","\"\[Ellipsis]\""},
+      "RowDefault"],
+     Background->RGBColor[0.9, 1., 0.9],
+     BaseStyle->"Panel",
+     BaselinePosition->Baseline,
+     FrameMargins->{{5, 5}, {3, 3}},
+     FrameStyle->GrayLevel[0.8],
+     RoundingRadius->5,
+     StripOnInput->False],
+    TemplateBox[{
+     "\"Commit\"", "\" in \"", 
+      "\"C:\\\\Users\\\\Kuba\\\\IdeaProjects\\\\MVue\\\\\"", "\": \"", 
+      StyleBox[
+      "\"f879a0910a0bbfa06b1d23a68d444e45afdcb5c6\"", Bold, StripOnInput -> 
+       False]}, "RowDefault"],
+    TooltipStyle->"TextStyling"],
+   Annotation[#, 
+    Row[{"Commit", " in ", "C:\\Users\\Kuba\\IdeaProjects\\MVue\\", ": ", 
+      Style["f879a0910a0bbfa06b1d23a68d444e45afdcb5c6", Bold]}], "Tooltip"]& ],
+  GitLink`GitObject["f879a0910a0bbfa06b1d23a68d444e45afdcb5c6", 
+   GitLink`GitRepo[
+    Association[
+    "BareQ" -> False, "GitDirectory" -> 
+     "C:\\Users\\Kuba\\IdeaProjects\\MVue\\.git\\", "WorkingDirectory" -> 
+     "C:\\Users\\Kuba\\IdeaProjects\\MVue\\"]]]]], "Output",
+ CellLabel->"Out[11]=",ExpressionUUID->"31a66c72-7b07-45a5-be6b-d6364cb48e27"]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -103,8 +195,15 @@ Cell[BoxData[
  CellLabel->"In[32]:=",ExpressionUUID->"bd6af62e-48bf-4587-863f-be30356ae0f0"],
 
 Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"update", " ", "version", " ", "info"}], 
+  "*)"}]], "Input",ExpressionUUID->"5b941741-1bd5-45aa-b148-9e840a4fc027"],
+
+Cell[BoxData[
  RowBox[{"PrintDefinitions", "@", "PackPaclet"}]], "Input",
  CellLabel->"In[35]:=",ExpressionUUID->"7767fb7a-ee06-452b-bc55-0ff6ca088225"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"PackPaclet", "@", 
@@ -113,15 +212,58 @@ Cell[BoxData[
     RowBox[{
      RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<MVue\>\""}], "}"}], 
    "]"}]}]], "Input",
- CellLabel->"In[36]:=",ExpressionUUID->"91d47faf-3b51-46b0-98c2-11564e0db3b5"],
+ CellLabel->"In[12]:=",ExpressionUUID->"91d47faf-3b51-46b0-98c2-11564e0db3b5"],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\Kuba\\\\IdeaProjects\\\\MVue\\\\MVue-0.0.3.\
+paclet\"\>"], "Output",
+ CellLabel->"Out[12]=",ExpressionUUID->"41c57c3d-f81d-4e8b-a0b3-f4c17abbd602"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"GitCreateTag", "[", "\[IndentingNewLine]", 
   RowBox[{
-  "repo", "\[IndentingNewLine]", ",", "\"\<v0.0.2\>\"", "\[IndentingNewLine]",
+  "repo", "\[IndentingNewLine]", ",", "\"\<v0.0.3\>\"", "\[IndentingNewLine]",
     ",", "\"\<HEAD\>\"", "\[IndentingNewLine]", ",", 
-   "\"\<alpha release\>\""}], "\[IndentingNewLine]", "]"}]], "Input",
- CellLabel->"In[37]:=",ExpressionUUID->"2a2e1eae-b814-45b6-b63e-6354a44a345d"],
+   "\"\<alpha release: body refresh updates\>\""}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellLabel->"In[13]:=",ExpressionUUID->"2a2e1eae-b814-45b6-b63e-6354a44a345d"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TooltipBox[
+    FrameBox[
+     TemplateBox[{
+      StyleBox["\"Tag\"", Italic, StripOnInput -> False],"\": \"",
+       "\"v0.0.3\"","\"\[Ellipsis]\""},
+      "RowDefault"],
+     Background->RGBColor[0.9, 1., 0.9],
+     BaseStyle->"Panel",
+     BaselinePosition->Baseline,
+     FrameMargins->{{5, 5}, {3, 3}},
+     FrameStyle->GrayLevel[0.8],
+     RoundingRadius->5,
+     StripOnInput->False],
+    TemplateBox[{
+     "\"Tag\"", "\" in \"", 
+      "\"C:\\\\Users\\\\Kuba\\\\IdeaProjects\\\\MVue\\\\\"", "\": \"", 
+      StyleBox[
+      "\"468a540928b27677ccb0e920b3894748d94896de\"", Bold, StripOnInput -> 
+       False]}, "RowDefault"],
+    TooltipStyle->"TextStyling"],
+   Annotation[#, 
+    Row[{"Tag", " in ", "C:\\Users\\Kuba\\IdeaProjects\\MVue\\", ": ", 
+      Style["468a540928b27677ccb0e920b3894748d94896de", Bold]}], "Tooltip"]& ],
+  GitLink`GitObject["468a540928b27677ccb0e920b3894748d94896de", 
+   GitLink`GitRepo[
+    Association[
+    "BareQ" -> False, "GitDirectory" -> 
+     "C:\\Users\\Kuba\\IdeaProjects\\MVue\\.git\\", "WorkingDirectory" -> 
+     "C:\\Users\\Kuba\\IdeaProjects\\MVue\\"]]]]], "Output",
+ CellLabel->"Out[13]=",ExpressionUUID->"b412dd1e-d0c6-4933-ade1-40e316b0dc48"]
+}, Open  ]],
 
 Cell[BoxData[
  RowBox[{"(*", 
@@ -205,7 +347,58 @@ Cell[BoxData[
          RowBox[{"1", "/", "100"}]}], "}"}], ",", "0", ",", ".1"}], "}"}]}], 
     "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}]}], 
   "\[IndentingNewLine]", "]"}]], "Input",
- CellLabel->"In[27]:=",ExpressionUUID->"5d1e780e-d27e-4bdb-8ffa-4c14358a5aed"]
+ CellLabel->"In[27]:=",ExpressionUUID->"5d1e780e-d27e-4bdb-8ffa-4c14358a5aed"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CloudDeploy", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"MVue", "[", 
+     RowBox[{"\"\<ExportFunction\>\"", "\[Rule]", "\"\<SVG\>\""}], "]"}], "@", 
+    RowBox[{"Manipulate", "[", 
+     RowBox[{
+      RowBox[{"Column", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"PolyhedronData", "[", "g", "]"}], ",", 
+         RowBox[{"PolyhedronData", "[", 
+          RowBox[{"g", ",", "p"}], "]"}]}], "}"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"g", ",", 
+        RowBox[{"Cases", "[", 
+         RowBox[{
+          RowBox[{"PolyhedronData", "[", "All", "]"}], ",", "_String"}], 
+         "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"p", ",", 
+        RowBox[{"Complement", "@@", 
+         RowBox[{"PolyhedronData", "/@", 
+          RowBox[{"{", 
+           RowBox[{"\"\<Properties\>\"", ",", "\"\<Classes\>\""}], 
+           "}"}]}]}]}], "}"}]}], "]"}]}], ",", 
+   RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.736065913777568*^9, 3.7360659137785683`*^9}, {
+  3.7360660578772964`*^9, 3.7360660616311846`*^9}, {3.73606804612995*^9, 
+  3.7360680578093815`*^9}, {3.7360680949696407`*^9, 3.7360681256567307`*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"324174cf-b178-4c0c-8150-eff27e9d50ef"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"CloudObject", "[", 
+   TemplateBox[{
+    "\"https://www.wolframcloud.com/objects/kuba.pod/0d11683e-ab08-4a6c-95a8-\
+3238cb15ad98/app\"",
+     "https://www.wolframcloud.com/objects/kuba.pod/0d11683e-ab08-4a6c-95a8-\
+3238cb15ad98/app"},
+    "HyperlinkURL"], "]"}],
+  CloudObject[
+  "https://www.wolframcloud.com/objects/kuba.pod/0d11683e-ab08-4a6c-95a8-\
+3238cb15ad98/app"],
+  SelectWithContents->True]], "Output",
+ CellLabel->"Out[14]=",ExpressionUUID->"3e44e5fa-d01f-4b04-8183-e28557bed072"]
+}, Open  ]]
 }, Open  ]]
 },
 WindowSize->{826, 703},
