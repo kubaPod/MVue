@@ -40,5 +40,7 @@ Currently interface is just a single html file with all custom css/scripts and w
       , {{c, 1/100}, 0, .1}
       ]
     ]
+    
+![Alt text](data/v-manipulate-simple.gif?raw=true "v-manipulate")    
  
 # TODO
