@@ -12,7 +12,7 @@ For very basic cases it should work out of the box while for more demanding it s
 
 :exclamation: `APIFunction` can drain your `$CloudCreditsAvailable` as fast as `CloudCDF` so be careful.
 
-Currently interface is just a single html file with all custom css/scripts and with Vue/Vuetify/Axios libraries linked from outside, at the end it will support more modern modularized stup for folks familar with node/webpack etc.  
+Currently interface is just a single html file with all custom css/scripts and with Vue/Vuetify/Axios libraries linked from outside. At the end it will support more modern modularized setup for folks familiar with node/webpack etc.  
  
 # Installation
  
