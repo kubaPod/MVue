@@ -15,10 +15,17 @@ For very basic cases it should work out of the box while for more demanding it s
 Currently interface is just a single html file with all custom css/scripts and with Vue/Vuetify/Axios libraries linked from outside, at the end it will support more modern modularized stup for folks familar with node/webpack etc.  
  
 # What's there 
+
+ ### MVue
+ 
+ `MVue` is a general constructor. Currently it only works with `Manipulate` and accepts the following options:
+ 
+  - `"ExportFunction"` can be any of `$ExportFormats` or a function that returns a string that can be displayed by the browser, e.g.: `Function[body, ExportString[body, "HTMLFragment"]]`
+  - `ContinuousAction` is `False` by default and unless is set to `True` it will overwrite default `Automatic` of `Manipulate's`. The reason is that it is better to call cloud only when controllers are released as opposed to doing this continuously. Because of `$CloudCredits` of course. But feel free to experiment with `Vue[ContinuousAction->True]`
  
  ### Manipulate / CloudCDF
  
- Support for `Manipulate` is the first thing to do, it is still in progress. The idea is that controllers are handled client side and the body is refreshed via Cloud API. 
+ Support for `Manipulate` is the first thing to do, **it is still in progress**. The idea is that controllers are handled client side and the body is refreshed via Cloud API. 
  
  Body response `"FormatFunction"` can be whichever from `$ExportFormats` but it is up to the user to choose carefully. E.g. `"HTML"` would be the best for textual/graid data, `"SVG"` is nice for `Graphics` but for output from mesh like functions (`CountourPlot` etc) it is probably better to use `"PNG"`.  
  
@@ -44,3 +51,17 @@ Currently interface is just a single html file with all custom css/scripts and w
 ![Alt text](data/v-manipulate-simple.gif?raw=true "v-manipulate")    
  
 # TODO
+
+- v-manipulate
+  - controllers 
+    + slider for default manipulator :heavy_check_mark:
+    + popup menu for default select :heavy_check_mark:
+    + checkbox :heavy_check_mark:
+    - labeled items (`val->lbl`) for select-like controllers
+    - ControlType support  
+  + api export function, png,html etc. :heavy_check_mark: (`"ExportFunction"`)       
+  - SymbolName encoding/form?        
+  - merge Vuetify props if provided        
+  - dependency tree for body and dynamic structure at the end.
+  - error handling for api function
+ - general error handling review
