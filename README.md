@@ -14,6 +14,25 @@ For very basic cases it should work out of the box while for more demanding it s
 
 Currently interface is just a single html file with all custom css/scripts and with Vue/Vuetify/Axios libraries linked from outside, at the end it will support more modern modularized stup for folks familar with node/webpack etc.  
  
+# Installation
+ 
+### Manual
+ 
+   Go to 'releases' tab and download appropriate .paclet file.
+    
+   Run `PacletInstall @ path/to/the.paclet` file
+   
+### Via ``MPM` ``
+   
+If you don't have ``MPM` `` yet, run:
+   
+    Import["https://raw.githubusercontent.com/kubapod/mpm/master/install.m"]
+   
+and then:
+   
+    Needs @ "MPM`"    
+    MPM`MPMInstall["kubapod", "mvue"]
+ 
 # What's there 
 
  ### MVue

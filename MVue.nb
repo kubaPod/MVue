@@ -65,11 +65,52 @@ Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<GitLink`\>\"", "]"}]], "Input",
  CellLabel->"In[4]:=",ExpressionUUID->"781dd92d-99e2-4289-ade9-5717f481c322"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{"repo", "=", 
   RowBox[{"GitOpen", "@", 
    RowBox[{"NotebookDirectory", "[", "]"}]}]}]], "Input",
- CellLabel->"In[6]:=",ExpressionUUID->"848a87b5-30d1-4890-9744-a4beb4d11a94"],
+ CellLabel->"In[28]:=",ExpressionUUID->"848a87b5-30d1-4890-9744-a4beb4d11a94"],
+
+Cell[BoxData[
+ TemplateBox[{RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+       RowBox[{"\"BareQ\"", "\[Rule]", "False"}], ",", 
+       RowBox[{
+        "\"GitDirectory\"", "\[Rule]", 
+         "\"C:\\\\Users\\\\Kuba\\\\IdeaProjects\\\\MVue\\\\.git\\\\\""}], ",", 
+       RowBox[{
+        "\"WorkingDirectory\"", "\[Rule]", 
+         "\"C:\\\\Users\\\\Kuba\\\\IdeaProjects\\\\MVue\\\\\""}]}], 
+     "\[RightAssociation]"}]},
+  "GitRepo",
+  DisplayFunction->(TooltipBox[
+    PanelBox[
+     GridBox[{{
+        GraphicsBox[{
+          EdgeForm[
+           GrayLevel[0.5]], 
+          GrayLevel[0.5], 
+          Thickness[0.1], 
+          LineBox[{{0, 0}, {5, 0}}], 
+          LineBox[{{0, 0}, {5, -3}}], 
+          GrayLevel[0.85], 
+          DiskBox[{0, 0}, 1], 
+          DiskBox[{5, 0}, 1], 
+          RGBColor[0, 1, 0], 
+          DiskBox[{5, -3}, 1]}, ImageSize -> 15], 
+        "\"C:\\\\Users\\\\Kuba\\\\IdeaProjects\\\\MVue\\\\\""}}, 
+      BaselinePosition -> {1, 2}], FrameMargins -> 5, BaselinePosition -> 
+     Baseline], 
+    "GitRepo[<|\"BareQ\" -> False, \"GitDirectory\" -> \
+\"C:\\\\Users\\\\Kuba\\\\IdeaProjects\\\\MVue\\\\.git\\\\\", \
+\"WorkingDirectory\" -> \
+\"C:\\\\Users\\\\Kuba\\\\IdeaProjects\\\\MVue\\\\\"|>]"]& )]], "Output",
+ CellLabel->"Out[28]=",ExpressionUUID->"f55047f0-b05d-4ab3-9883-53eabb548124"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -82,18 +123,165 @@ Cell[BoxData[
   RowBox[{"(*", 
    RowBox[{
     RowBox[{"git", " ", "add"}], " ", "-", "u"}], "*)"}]}]], "Input",
- CellLabel->"In[25]:=",ExpressionUUID->"12c5ca6e-28c7-48b9-89a7-baf47f1d1d61"],
+ CellLabel->"In[29]:=",ExpressionUUID->"12c5ca6e-28c7-48b9-89a7-baf47f1d1d61"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"MVue.nb\"\>", ",", "\<\"MVue\\\\PacletInfo.m\"\>"}], 
+  "}"}]], "Output",
+ CellLabel->"Out[29]=",ExpressionUUID->"ad84bb84-497b-426c-a883-c82f23b25808"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"GitCommit", "[", 
   RowBox[{"repo", ",", 
    RowBox[{"Echo", "@", 
     RowBox[{"InputString", "[", "]"}]}]}], "]"}]], "Input",
- CellLabel->"In[26]:=",ExpressionUUID->"c051b44a-e409-46b3-96b1-8293d6cf9239"]
+ CellLabel->"In[30]:=",ExpressionUUID->"c051b44a-e409-46b3-96b1-8293d6cf9239"],
+
+Cell[BoxData["\<\"feat(release) first release polish\"\>"], \
+"Echo",ExpressionUUID->"4fc134e4-5fab-4d77-bb53-d00a6e3d2b17"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TooltipBox[
+    FrameBox[
+     TemplateBox[{
+      StyleBox["\"Commit\"", Italic, StripOnInput -> False],"\": \"",
+       "\"22785ab6\"","\"\[Ellipsis]\""},
+      "RowDefault"],
+     Background->RGBColor[0.9, 1., 0.9],
+     BaseStyle->"Panel",
+     BaselinePosition->Baseline,
+     FrameMargins->{{5, 5}, {3, 3}},
+     FrameStyle->GrayLevel[0.8],
+     RoundingRadius->5,
+     StripOnInput->False],
+    TemplateBox[{
+     "\"Commit\"", "\" in \"", 
+      "\"C:\\\\Users\\\\Kuba\\\\IdeaProjects\\\\MVue\\\\\"", "\": \"", 
+      StyleBox[
+      "\"22785ab694ac2aedce941c6b4e43a51476a85f0f\"", Bold, StripOnInput -> 
+       False]}, "RowDefault"],
+    TooltipStyle->"TextStyling"],
+   Annotation[#, 
+    Row[{"Commit", " in ", "C:\\Users\\Kuba\\IdeaProjects\\MVue\\", ": ", 
+      Style["22785ab694ac2aedce941c6b4e43a51476a85f0f", Bold]}], "Tooltip"]& ],
+  GitLink`GitObject["22785ab694ac2aedce941c6b4e43a51476a85f0f", 
+   GitLink`GitRepo[
+    Association[
+    "BareQ" -> False, "GitDirectory" -> 
+     "C:\\Users\\Kuba\\IdeaProjects\\MVue\\.git\\", "WorkingDirectory" -> 
+     "C:\\Users\\Kuba\\IdeaProjects\\MVue\\"]]]]], "Output",
+ CellLabel->"Out[30]=",ExpressionUUID->"2eb02266-30ae-48aa-9a0a-8884ecd1ef61"]
+}, Open  ]]
 }, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell["release", \
 "Section",ExpressionUUID->"db390a25-d7c5-47de-be76-74a23245b970"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PacletDirectoryAdd", "@", 
+  RowBox[{"NotebookDirectory", "[", "]"}]}]], "Input",
+ CellLabel->"In[32]:=",ExpressionUUID->"bd6af62e-48bf-4587-863f-be30356ae0f0"],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"C:\\\\Users\\\\Kuba\\\\IdeaProjects\\\\MVue\\\\\"\>", 
+  "}"}]], "Output",
+ CellLabel->"Out[32]=",ExpressionUUID->"b8561a01-7261-4dd1-818b-c44de339f070"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PrintDefinitions", "@", "PackPaclet"}]], "Input",
+ CellLabel->"In[35]:=",ExpressionUUID->"7767fb7a-ee06-452b-bc55-0ff6ca088225"],
+
+Cell[BoxData[
+ TemplateBox[{FrontEndObject[
+    LinkObject["htjkx_shm", 3, 1]],33,
+   "FrontEndObject[LinkObject[\"htjkx_shm\", 3, 1]]","33",
+   "\"PacletManager`PackPaclet\""},
+  "NotebookObjectUnsaved"]], "Output",
+ CellLabel->"Out[35]=",ExpressionUUID->"30dd7bd7-baa6-4e8f-8f49-0ea83bef36d5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PackPaclet", "@", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<MVue\>\""}], "}"}], 
+   "]"}]}]], "Input",
+ CellLabel->"In[36]:=",ExpressionUUID->"91d47faf-3b51-46b0-98c2-11564e0db3b5"],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\Kuba\\\\IdeaProjects\\\\MVue\\\\MVue-0.0.2.\
+paclet\"\>"], "Output",
+ CellLabel->"Out[36]=",ExpressionUUID->"d50b4b54-b3af-4722-acbd-aeb64b4b3190"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GitCreateTag", "[", "\[IndentingNewLine]", 
+  RowBox[{
+  "repo", "\[IndentingNewLine]", ",", "\"\<v0.0.2\>\"", "\[IndentingNewLine]",
+    ",", "\"\<HEAD\>\"", "\[IndentingNewLine]", ",", 
+   "\"\<alpha release\>\""}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellLabel->"In[37]:=",ExpressionUUID->"2a2e1eae-b814-45b6-b63e-6354a44a345d"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TooltipBox[
+    FrameBox[
+     TemplateBox[{
+      StyleBox["\"Tag\"", Italic, StripOnInput -> False],"\": \"",
+       "\"v0.0.2\"","\"\[Ellipsis]\""},
+      "RowDefault"],
+     Background->RGBColor[0.9, 1., 0.9],
+     BaseStyle->"Panel",
+     BaselinePosition->Baseline,
+     FrameMargins->{{5, 5}, {3, 3}},
+     FrameStyle->GrayLevel[0.8],
+     RoundingRadius->5,
+     StripOnInput->False],
+    TemplateBox[{
+     "\"Tag\"", "\" in \"", 
+      "\"C:\\\\Users\\\\Kuba\\\\IdeaProjects\\\\MVue\\\\\"", "\": \"", 
+      StyleBox[
+      "\"c16bffe1bd3f5873c8cadc41cb193817bace5bbe\"", Bold, StripOnInput -> 
+       False]}, "RowDefault"],
+    TooltipStyle->"TextStyling"],
+   Annotation[#, 
+    Row[{"Tag", " in ", "C:\\Users\\Kuba\\IdeaProjects\\MVue\\", ": ", 
+      Style["c16bffe1bd3f5873c8cadc41cb193817bace5bbe", Bold]}], "Tooltip"]& ],
+  GitLink`GitObject["c16bffe1bd3f5873c8cadc41cb193817bace5bbe", 
+   GitLink`GitRepo[
+    Association[
+    "BareQ" -> False, "GitDirectory" -> 
+     "C:\\Users\\Kuba\\IdeaProjects\\MVue\\.git\\", "WorkingDirectory" -> 
+     "C:\\Users\\Kuba\\IdeaProjects\\MVue\\"]]]]], "Output",
+ CellLabel->"Out[37]=",ExpressionUUID->"26c9f37c-3417-438b-ae34-7ff8048e4be0"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"push", " ", "--"}], "follow"}], "-", 
+   RowBox[{"tags", " ", "now"}]}], 
+  "*)"}]], "Input",ExpressionUUID->"c68e6fad-9b9e-4e79-adcb-1135ae3cd233"]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
