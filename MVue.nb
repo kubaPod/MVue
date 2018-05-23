@@ -7,6 +7,8 @@ Cell[BoxData[
     RowBox[{"CloudConnect", "[", "]"}]}]}], "]"}]], "Input",
  CellLabel->"In[4]:=",ExpressionUUID->"dbdaea15-a3e2-4254-ac1a-cfb205ff01d7"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{"CloudDeploy", "[", "\[IndentingNewLine]", 
   RowBox[{
@@ -37,8 +39,8 @@ Cell[BoxData[
       RowBox[{"{", 
        RowBox[{
         RowBox[{"{", 
-         RowBox[{"y", ",", "2", ",", " ", "\"\<rectangle\>\""}], "}"}], ",", 
-        "1", ",", "10"}], "}"}], "\n", ",", " ", 
+         RowBox[{"y", ",", "200", ",", " ", "\"\<rectangle\>\""}], "}"}], ",",
+         "1", ",", "100"}], "}"}], "\n", ",", " ", 
       RowBox[{"{", 
        RowBox[{
         RowBox[{"{", 
@@ -49,37 +51,25 @@ Cell[BoxData[
       RowBox[{"{", 
        RowBox[{"a", ",", " ", 
         RowBox[{"{", 
-         RowBox[{"True", ",", "False"}], "}"}]}], "}"}], "\n", ",", " ", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"y", ",", "2", ",", " ", "\"\<rectangle\>\""}], "}"}], ",", 
-        "1", ",", "10"}], "}"}], "\n", ",", " ", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"y", ",", "2", ",", " ", "\"\<rectangle\>\""}], "}"}], ",", 
-        "1", ",", "10"}], "}"}], "\n", ",", " ", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"y", ",", "2", ",", " ", "\"\<rectangle\>\""}], "}"}], ",", 
-        "1", ",", "10"}], "}"}], "\n", ",", " ", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"y", ",", "2", ",", " ", "\"\<rectangle\>\""}], "}"}], ",", 
-        "1", ",", "10"}], "}"}], "\n", ",", " ", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"y", ",", "2", ",", " ", "\"\<rectangle\>\""}], "}"}], ",", 
-        "1", ",", "10"}], "}"}], "\n", "\n", ",", " ", 
+         RowBox[{"True", ",", "False"}], "}"}]}], "}"}], "\n", "\n", "\n", 
+      ",", " ", 
       RowBox[{"ContinuousAction", "\[Rule]", "False"}]}], "\n", "]"}]}], ",", 
    "\[IndentingNewLine]", "\"\<mvue/beta\>\"", ",", "\[IndentingNewLine]", 
    RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], 
-  "\[IndentingNewLine]", "]"}]], "Code",
- CellLabel->"In[27]:=",ExpressionUUID->"60e33dcf-6aaa-41dd-acf3-e73e2b43ff0d"],
+  "\[IndentingNewLine]", 
+  "]"}]], "Code",ExpressionUUID->"60e33dcf-6aaa-41dd-acf3-e73e2b43ff0d"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"CloudObject", "[", 
+   TemplateBox[{
+    "\"https://www.wolframcloud.com/objects/kuba2/mvue/beta/app\"",
+     "https://www.wolframcloud.com/objects/kuba2/mvue/beta/app"},
+    "HyperlinkURL"], "]"}],
+  CloudObject["https://www.wolframcloud.com/objects/kuba2/mvue/beta/app"],
+  SelectWithContents->True]], "Output",
+ CellLabel->"Out[2]=",ExpressionUUID->"cf096603-5553-47fb-9c05-02d07d4405b4"]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -158,7 +148,7 @@ Cell[BoxData["$Failed"], "Output",
 }, Open  ]]
 },
 WindowSize->{826, 703},
-WindowMargins->{{Automatic, 124}, {118, Automatic}},
+WindowMargins->{{324, Automatic}, {Automatic, 206}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 TrackCellChangeTimes->False,
 FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",

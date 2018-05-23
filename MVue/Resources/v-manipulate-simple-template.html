@@ -135,7 +135,7 @@
             if(!app.config.continuousAction) { 
                controller.events = controller.type === "v-slider" 
                     //maybe that is stupid but could not find anything better. and ondragend does not work
-                  ? { mouseup: app.refreshBody }  
+                  ? { click: app.refreshBody }  
                   : { change: app.refreshBody } 
             }
           }
