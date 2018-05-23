@@ -23,6 +23,10 @@
       font-size: 14px;
       
     } 
+
+    .table__overflow {
+      overflow: visible;
+    }
     
   </style>
 </head>
@@ -35,19 +39,22 @@
   <div id="app">
     <v-app>
       <v-content>
-        <v-container grid-list-md text-xs-center class="body-2">
+        <v-container grid-list-md text-xs-center pa-5 class="body-2">
           <v-layout row wrap>
             
             <v-flex md4>                    
               
-                <v-data-table
+                <v-data-table pa-3
                   hide-headers
                   hide-actions
                   :items="config.controllers"                  
                   class="elevation-1"
+                  
                 >
                   <template slot="items" slot-scope="props">      
-                    <td class="text-xs-left">{{ props.item.label || props.item.name }}</td>
+                    <td class="text-xs-left">
+                      {{ props.item.label || props.item.name }}
+                    </td>
                     <td class="text-xs-left" width='100%'>
                       <component 
                           :is = 'props.item.type' 
@@ -56,6 +63,7 @@
                           v-model = 'variables[props.item.name]'                             
                           v-bind = 'props.item.spec'  
                           v-on = 'props.item.events || {}'
+                          
                       ></component> 
                     </td>
                   </template>
@@ -66,7 +74,7 @@
             </v-flex>
 
             <v-flex md8>
-              <v-card class='tm-5'>
+              <v-card class='tm-5 elevation-1'>
                 <v-layout column>
                   <v-flex >
                     <div v-html = "body"> </div>

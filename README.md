@@ -22,4 +22,23 @@ Currently interface is just a single html file with all custom css/scripts and w
  
  Body response `"FormatFunction"` can be whichever from `$ExportFormats` but it is up to the user to choose carefully. E.g. `"HTML"` would be the best for textual/graid data, `"SVG"` is nice for `Graphics` but for output from mesh like functions (`CountourPlot` etc) it is probably better to use `"PNG"`.  
  
+ Here is one example that fails with default deployment:
+ 
+ https://mathematica.stackexchange.com/q/172905/5478
+ 
+     CloudDeploy[
+      MVue["ExportFunction" -> "SVG"] @ Manipulate[
+        LogLogPlot[
+          Evaluate[ Table[
+            (c (4.13*^19 a + 4.13*^19 c) + 10^b (1.36*^18 + c (1.36*^18 + 4.15*^16 a + 4.15*^16 c))
+            )/(2.05*^17 a + 2.05*^17 c + 10^b (6.82*^15 + 2.06*^14 a + 2.06*^14 c))
+          , {b, 1., 5, 1}]
+          ]
+        , {a, 10^-3, 10^3}
+        , PlotLegends -> Table[10^b, {b, 1, 5, 1}]
+        ]
+      , {{c, 1/100}, 0, .1}
+      ]
+    ]
+ 
 # TODO
