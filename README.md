@@ -54,12 +54,12 @@ Currently interface is just a single html file with all custom css/scripts and w
 
 - v-manipulate
   - controllers 
-    + slider for default manipulator :heavy_check_mark:
-    + popup menu for default select :heavy_check_mark:
-    + checkbox :heavy_check_mark:
+    + :heavy_check_mark: slider for default manipulator 
+    + :heavy_check_mark: popup menu for default select 
+    + :heavy_check_mark: checkbox 
     - labeled items (`val->lbl`) for select-like controllers
     - ControlType support  
-  + api export function, png,html etc. :heavy_check_mark: (`"ExportFunction"`)       
+  + :heavy_check_mark: api export function, png,html etc.  (`"ExportFunction"`)       
   - SymbolName encoding/form?        
   - merge Vuetify props if provided        
   - dependency tree for body and dynamic structure at the end.
