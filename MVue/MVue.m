@@ -23,10 +23,9 @@
          + popup menu
          + checkbox
          - labeled items for select-like controllers
-         - via ControlType
-           - input field
-           - toggler
-           - setter         
+         - input field
+         - toggler
+         - setter         
          
        - error handling
        - option: content type png/html       
@@ -62,7 +61,7 @@ Begin["`Private`"];
 $resources = FileNameJoin[{DirectoryName[$InputFileName /. "" :> NotebookFileName[]], "Resources"}];
 
 
-$jsonAtoms = True | False | Null | _String | _?NumberQ
+$jsonAtom = True | False | Null | _String | _Integer | _Real; 
 
 
 (* ::Section:: *)
@@ -88,7 +87,7 @@ MVue[opts___?OptionQ]:=Function[expr, MVue[expr, opts]];
 MVue[___]:=(Message[MVue::argpatt]; $Failed)
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*VManipulate*)
 
 
@@ -100,7 +99,7 @@ VManipulate // Options = {
 VManipulate[
   m : Verbatim[Manipulate][
     body    : _
-  , varSpec : ({_Symbol, __}|{{_Symbol, __}, __} ) ..
+  , varSpec : ({_Symbol, ___}|{{_Symbol, __}, ___} ) ..
   , opts    : OptionsPattern[]
   ]
 , vopts : ___?OptionQ
@@ -146,61 +145,82 @@ VManipulate /: CloudDeploy[vm_VManipulate, HoldPattern[p_String : CreateUUID[]],
   this way overloading is more flexible*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*common*)
+
+
+VControl[{var_Symbol, rest___}]:=VControl[{{var, vControlInitialValue[rest], SymbolName[var]}, rest}]
 
 
 VControl[{{var_Symbol, init_}, rest___}]:=VControl[{{var, init, SymbolName[var]}, rest}]
 
 
-(* ::Subsection:: *)
-(*sliders*)
-
-
-VControl[{var_Symbol, min_?NumericQ, rest___}]:=VControl[{{var, min}, min, rest}];
-
-
 VControl[
-  { {var_Symbol, initial_?NumericQ, label_String}
-  , min_?NumericQ
-  , max_?NumericQ
-  , step : _?NumericQ : 0.01
+  { {var_Symbol, initial : $jsonAtom, label : $jsonAtom}
   , rest___
   }
 ]:= <|
   "name" -> SymbolName[var]
 , "label" -> label
 , "init" -> initial
-, "type" -> "v-slider"
+, vControlTypeAndSpec[rest]
+
+|>
+
+
+vControlInitialValue[___]:=$Failed
+vControlTypeAndSpec[___]:=$Failed
+
+
+(* ::Subsection::Closed:: *)
+(*sliders*)
+
+
+vControlInitialValue[min_?NumericQ, ___]:=min;
+
+
+vControlTypeAndSpec[
+    min_?NumericQ
+  , max_?NumericQ
+  , step : _?NumericQ : 0.01
+  , rest___?OptionQ  
+]:= <|  
+  "type" -> "v-slider"
 , "spec" -> <|"min" -> min, "max" -> max, "step" -> step, "thumb-label" -> True|>  
 |>
 
 
-(* ::Subsection:: *)
-(*selects*)
+(* ::Subsection::Closed:: *)
+(*selects and switches*)
 
 
-VControl[{var_Symbol,items: { $jsonAtoms... }, rest___}]:=VControl[{{var, items[[1]]}, items,rest}]
+vControlInitialValue[items: { $jsonAtom... }, ___?OptionQ]:= First @ items; 
 
 
-VControl[{{var_Symbol, init_, lbl: $jsonAtoms}, items: {$jsonAtoms...},rest___}]:= <|
-  "name" -> SymbolName[var]
-, "lable"->lbl
-, "init" -> init
-, "type" -> "v-select"
-, "spec" -> <|"items"->items|>    
+vControlInitialValue[items: { __Rule }, ___?OptionQ]:= First @ First @ items; 
+
+
+vControlTypeAndSpec[ items: {$jsonAtom...}, rest___?OptionQ]:= <|
+  "type"  -> "v-select"
+, "spec"  -> <|"items"->items|>    
+|>
+
+
+vControlTypeAndSpec[ items:{True,False},rest___?OptionQ]:= <|
+  "type" -> "v-checkbox"
 |>
 
 
 (* ::Subsection:: *)
-(*checkboxes*)
+(*input field*)
 
 
-VControl[{{var_Symbol, init_, lbl_String},items:{True,False},rest___}]:= <|
-  "name" -> SymbolName[var]
-, "lable"->lbl
-, "init" -> init
-, "type" -> "v-checkbox"
+vControlInitialValue[___?OptionQ]:= ""; (*Input field*)
+
+
+vControlTypeAndSpec[  rest___?OptionQ]:= <|
+  "type"  -> "v-text-field"
+
 |>
 
 
@@ -211,7 +231,7 @@ VControl[{{var_Symbol, init_, lbl_String},items:{True,False},rest___}]:= <|
 VControl[___]:=$Failed;
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*ManipulateBlock*)
 
 
@@ -223,9 +243,9 @@ ManipulateBlock::usage = "ManipulateBlock[{varSpec}, expr] acts like Block[{x1, 
 ManipulateBlock // Attributes = HoldAll;
 
 
-ManipulateBlock[{varSpec:({_Symbol, __}|{{_Symbol, __}, __} )..}]:=Module[
+ManipulateBlock[{varSpec:({_Symbol, ___}|{{_Symbol, __}, ___} )..}]:=Module[
   {vars}
-, vars = Hold[varSpec] /. { {{s_Symbol, __}, __}:> s, {s_Symbol, __}:>s}
+, vars = Hold[varSpec] /. { {{s_Symbol, __}, ___}:> s, {s_Symbol, ___}:>s}
 ; vars = DeleteDuplicates @ vars
 ; vars /. Hold[vars__]:> Function[expr, Block[{vars}, expr ], HoldAll]
 ];

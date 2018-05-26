@@ -50,43 +50,17 @@ Cell[BoxData[
        RowBox[{"a", ",", " ", 
         RowBox[{"{", 
          RowBox[{"True", ",", "False"}], "}"}]}], "}"}], "\n", ",", " ", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"y", ",", "2", ",", " ", "\"\<rectangle\>\""}], "}"}], ",", 
-        "1", ",", "10"}], "}"}], "\n", ",", " ", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"y", ",", "2", ",", " ", "\"\<rectangle\>\""}], "}"}], ",", 
-        "1", ",", "10"}], "}"}], "\n", ",", " ", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"y", ",", "2", ",", " ", "\"\<rectangle\>\""}], "}"}], ",", 
-        "1", ",", "10"}], "}"}], "\n", ",", " ", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"y", ",", "2", ",", " ", "\"\<rectangle\>\""}], "}"}], ",", 
-        "1", ",", "10"}], "}"}], "\n", ",", " ", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"y", ",", "2", ",", " ", "\"\<rectangle\>\""}], "}"}], ",", 
-        "1", ",", "10"}], "}"}], "\n", "\n", ",", " ", 
+      RowBox[{"{", "b", "}"}], "\n", "\n", ",", " ", 
       RowBox[{"ContinuousAction", "\[Rule]", "False"}]}], "\n", "]"}]}], ",", 
    "\[IndentingNewLine]", "\"\<mvue/beta\>\"", ",", "\[IndentingNewLine]", 
    RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], 
-  "\[IndentingNewLine]", "]"}]], "Code",
- CellLabel->"In[27]:=",ExpressionUUID->"60e33dcf-6aaa-41dd-acf3-e73e2b43ff0d"],
+  "\[IndentingNewLine]", 
+  "]"}]], "Code",ExpressionUUID->"60e33dcf-6aaa-41dd-acf3-e73e2b43ff0d"],
 
 Cell[CellGroupData[{
 
 Cell["examples", \
 "Section",ExpressionUUID->"aa1f59a5-7a3e-4735-b0f6-aa9ecb4f73be"],
-
-Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"CloudDeploy", "[", "\[IndentingNewLine]", 
@@ -151,6 +125,11 @@ Cell[BoxData[
          RowBox[{"1", "/", "100"}]}], "}"}], ",", "0", ",", ".1"}], "}"}]}], 
     "]"}]}], "\[IndentingNewLine]", "]"}]], "Input",
  CellLabel->"In[14]:=",ExpressionUUID->"5d1e780e-d27e-4bdb-8ffa-4c14358a5aed"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["XMLTemplate"], \
+"Input",ExpressionUUID->"212d4465-0a3e-4365-979c-f60117762244"],
 
 Cell[BoxData["$Failed"], "Output",
  CellLabel->"Out[14]=",ExpressionUUID->"af0941de-4b2a-4d2a-82b4-7b26eb2809aa"]
