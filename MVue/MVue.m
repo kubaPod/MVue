@@ -172,7 +172,7 @@ vControlInitialValue[___]:=$Failed
 vControlTypeAndSpec[___]:=$Failed
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*sliders*)
 
 
@@ -186,7 +186,8 @@ vControlTypeAndSpec[
   , rest___?OptionQ  
 ]:= <|  
   "type" -> "v-slider"
-, "spec" -> <|"min" -> min, "max" -> max, "step" -> step, "thumb-label" -> True|>  
+, "spec" -> <|"min" -> min, "max" -> max, "step" -> step, "thumb-label" -> True
+  |>  
 |>
 
 

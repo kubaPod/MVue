@@ -7,6 +7,8 @@ Cell[BoxData[
     RowBox[{"CloudConnect", "[", "]"}]}]}], "]"}]], "Input",
  CellLabel->"In[4]:=",ExpressionUUID->"dbdaea15-a3e2-4254-ac1a-cfb205ff01d7"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{"CloudDeploy", "[", "\[IndentingNewLine]", 
   RowBox[{
@@ -50,12 +52,28 @@ Cell[BoxData[
        RowBox[{"a", ",", " ", 
         RowBox[{"{", 
          RowBox[{"True", ",", "False"}], "}"}]}], "}"}], "\n", ",", " ", 
-      RowBox[{"{", "b", "}"}], "\n", "\n", ",", " ", 
-      RowBox[{"ContinuousAction", "\[Rule]", "False"}]}], "\n", "]"}]}], ",", 
-   "\[IndentingNewLine]", "\"\<mvue/beta\>\"", ",", "\[IndentingNewLine]", 
+      RowBox[{"{", "b", "}"}], "\n", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"c", ",", " ", "100000", ",", "1000000", ",", "10000"}], "}"}],
+       "\n", "\n", ",", " ", 
+      RowBox[{"ContinuousAction", " ", "\[Rule]", " ", "False"}]}], "\n", 
+     "]"}]}], ",", "\[IndentingNewLine]", "\"\<mvue/beta\>\"", ",", 
+   "\[IndentingNewLine]", 
    RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], 
-  "\[IndentingNewLine]", 
-  "]"}]], "Code",ExpressionUUID->"60e33dcf-6aaa-41dd-acf3-e73e2b43ff0d"],
+  "\[IndentingNewLine]", "]"}]], "Code",
+ CellLabel->"In[31]:=",ExpressionUUID->"60e33dcf-6aaa-41dd-acf3-e73e2b43ff0d"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"CloudObject", "[", 
+   TemplateBox[{
+    "\"https://www.wolframcloud.com/objects/kuba.pod/mvue/beta/app\"",
+     "https://www.wolframcloud.com/objects/kuba.pod/mvue/beta/app"},
+    "HyperlinkURL"], "]"}],
+  CloudObject["https://www.wolframcloud.com/objects/kuba.pod/mvue/beta/app"],
+  SelectWithContents->True]], "Output",
+ CellLabel->"Out[31]=",ExpressionUUID->"462cef42-ba9e-4da2-9c73-1451076b4347"]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -126,14 +144,8 @@ Cell[BoxData[
     "]"}]}], "\[IndentingNewLine]", "]"}]], "Input",
  CellLabel->"In[14]:=",ExpressionUUID->"5d1e780e-d27e-4bdb-8ffa-4c14358a5aed"],
 
-Cell[CellGroupData[{
-
 Cell[BoxData["XMLTemplate"], \
-"Input",ExpressionUUID->"212d4465-0a3e-4365-979c-f60117762244"],
-
-Cell[BoxData["$Failed"], "Output",
- CellLabel->"Out[14]=",ExpressionUUID->"af0941de-4b2a-4d2a-82b4-7b26eb2809aa"]
-}, Open  ]]
+"Input",ExpressionUUID->"212d4465-0a3e-4365-979c-f60117762244"]
 }, Open  ]]
 },
 WindowSize->{826, 703},

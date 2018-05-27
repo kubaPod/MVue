@@ -23,6 +23,16 @@
       font-size: 14px;
       
     } 
+
+     /* for longer values thumb-label is too small 
+        so I'm making it transparent and adjusting position a little bit
+     */
+
+     div.slider__thumb--label {
+       background-color: transparent!important;
+       color:black;
+       top:-25px;
+      }
     
   </style>
 </head>
@@ -47,7 +57,11 @@
                   class="elevation-1"
                 >
                   <template slot="items" slot-scope="props">      
-                    <td class="text-xs-left">{{ props.item.label || props.item.name }}</td>
+                    <td class="text-xs-left">
+                      {{  props.item.label }}
+                     
+                    </td>
+                   
                     <td class="text-xs-left" width='100%'>
                       <component 
                           :is = 'props.item.type' 
@@ -57,6 +71,7 @@
                           v-bind = 'props.item.spec'  
                           v-on = 'props.item.events || {}'
                       ></component> 
+
                     </td>
                   </template>
                 </v-data-table>
@@ -146,6 +161,7 @@
         app.refreshBody();
       },
       methods: {
+      
         refreshBody: function() {
           var data = this;
          
