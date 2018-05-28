@@ -137,7 +137,7 @@ VManipulate /: CloudDeploy[vm_VManipulate, HoldPattern[p_String : CreateUUID[]],
 ]
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*VControl*)
 
 
@@ -232,7 +232,7 @@ vControlTypeAndSpec[  rest___?OptionQ]:= <|
 VControl[___]:=$Failed;
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*ManipulateBlock*)
 
 
@@ -267,12 +267,14 @@ ManipulateAPIFunction // Attributes = HoldAll;
 
 ManipulateAPIFunction // Options = {
   "ExportFunction" -> Automatic  
+, "FormatFunction" -> Automatic  
 };
 
 
 ManipulateAPIFunction[body_, varSpec__List, opts:OptionsPattern[]]:= With[
   { block = ManipulateBlock[{varSpec}]
-  , exportFunction = resolveExportFunction @ OptionValue @ "ExportFunction" 
+  , exportFunction = resolvePipeFunction[ OptionValue @ "ExportFunction", $defaultExportFunction ]
+  , formattingFunction = resolvePipeFunction[ OptionValue @ "FormatFunction", $defaultFormatFunction ]
   }
 , Function @ block[  
     Module[
@@ -289,7 +291,7 @@ ManipulateAPIFunction[body_, varSpec__List, opts:OptionsPattern[]]:= With[
    ; result = body
      (*TODO: formatting + exporting function*)
       (*formatting*) 
-   ; exportFunction @ result
+   ; exportFunction @ formattingFunction @ result
    ]
  ]
 ]
@@ -298,10 +300,13 @@ ManipulateAPIFunction[body_, varSpec__List, opts:OptionsPattern[]]:= With[
 $defaultExportFunction = Function[b, ExportString[b, "HTMLFragment"]];
 
 
-resolveExportFunction[Automatic]:=$defaultExportFunction;
-resolveExportFunction[ s_String /; MemberQ[$ExportFormats, s] ]:=Function[b, ExportString[b, s]]
-resolveExportFunction[foo: (_Symbol | _Function)]:=foo;
-resolveExportFunction[___]:=$defaultExportFunction;
+$defaultFormatFunction = Identity;
+
+
+resolvePipeFunction[Automatic, def_]:=def;
+resolvePipeFunction[ s_String /; MemberQ[$ExportFormats, s], _ ]:=Function[b, ExportString[b, s]]
+resolvePipeFunction[foo: (_Symbol | _Function), _]:=foo;
+resolvePipeFunction[_, def_]:=def;
 (*TODO: more verbose handling of an invalid value*)
 
 

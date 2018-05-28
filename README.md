@@ -39,9 +39,18 @@ and then:
  
  `MVue` is a general constructor. Currently it only works with `Manipulate` and accepts the following options:
  
-[//] #  - `"ExportFunction"` can be any of `$ExportFormats` or a function that returns a string that can be displayed by the browser, e.g.: `Function[body, ExportString[body, "HTMLFragment"]]`
-
   - `ContinuousAction` is `False` by default and unless is set to `True` it will overwrite default `Automatic` of `Manipulate's`. The reason is that it is better to call cloud only when controllers are released as opposed to doing this continuously. Because of `$CloudCredits` of course. But feel free to experiment with `Vue[ContinuousAction->True]`
+  
+  - `"ExportFunction"` and `"FormatFunction"`   
+  `MVue` creates `APIFunction[{...}, exportFunction @ formatFunction @ body]`  
+   Both of them can be any of `$ExportFormats` (translates to `ExportString[#, optionValue]&`) or a function
+   
+    - `"ExportFunction"` should return a valid html so either `HTMLFragment` or e.g. `SVG` string.  
+     By default `"ExportFunction"` is `ExportString[#, "HTMLFragment"]`
+     
+    - `"FormatFunction"` can be useful when you want to rasterize body with specific parameters.   
+    By default it is `Identity`. 
+  
  
  ### Manipulate / CloudCDF
  
