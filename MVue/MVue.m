@@ -255,7 +255,7 @@ ManipulateBlock[{varSpec:({_Symbol, ___}|{{_Symbol, __}, ___} )..}]:=Module[
 ManipulateBlock[varSpec_, expr_]:=ManipulateBlock[varSpec][expr]
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*ManipulateAPIFunction*)
 
 
@@ -287,9 +287,9 @@ ManipulateAPIFunction[body_, varSpec__List, opts:OptionsPattern[]]:= With[
      
      (*body*)
    ; result = body
-   
+     (*TODO: formatting + exporting function*)
       (*formatting*) 
-   ; exportFunction @ body
+   ; exportFunction @ result
    ]
  ]
 ]

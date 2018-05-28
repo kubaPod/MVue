@@ -39,7 +39,8 @@ and then:
  
  `MVue` is a general constructor. Currently it only works with `Manipulate` and accepts the following options:
  
-  - `"ExportFunction"` can be any of `$ExportFormats` or a function that returns a string that can be displayed by the browser, e.g.: `Function[body, ExportString[body, "HTMLFragment"]]`
+[//] #  - `"ExportFunction"` can be any of `$ExportFormats` or a function that returns a string that can be displayed by the browser, e.g.: `Function[body, ExportString[body, "HTMLFragment"]]`
+
   - `ContinuousAction` is `False` by default and unless is set to `True` it will overwrite default `Automatic` of `Manipulate's`. The reason is that it is better to call cloud only when controllers are released as opposed to doing this continuously. Because of `$CloudCredits` of course. But feel free to experiment with `Vue[ContinuousAction->True]`
  
  ### Manipulate / CloudCDF
