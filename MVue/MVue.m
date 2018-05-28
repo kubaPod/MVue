@@ -87,12 +87,14 @@ MVue[opts___?OptionQ]:=Function[expr, MVue[expr, opts]];
 MVue[___]:=(Message[MVue::argpatt]; $Failed)
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*VManipulate*)
 
 
 VManipulate // Options = {
-  ContinuousAction -> False  
+  ContinuousAction -> "Delayed"
+, AppearanceElements -> {}
+    
 };  
 
 
@@ -105,7 +107,7 @@ VManipulate[
 , vopts : ___?OptionQ
 ]:=Module[  {  config}
 
-, config = KeyMap[ Decapitalize @* ToString ] @ <|    
+, config = Echo @ KeyMap[ Decapitalize @* ToString ] @ <|    
     Options[VManipulate]
   , FilterRules[{vopts}, Options[VManipulate]]   
   , FilterRules[{opts}, Options[VManipulate]]  
@@ -137,7 +139,7 @@ VManipulate /: CloudDeploy[vm_VManipulate, HoldPattern[p_String : CreateUUID[]],
 ]
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*VControl*)
 
 
@@ -186,7 +188,7 @@ vControlTypeAndSpec[
   , rest___?OptionQ  
 ]:= <|  
   "type" -> "v-slider"
-, "spec" -> <|"min" -> min, "max" -> max, "step" -> step, "thumb-label" -> True
+, "spec" -> <|"min" -> min, "max" -> max, "step" -> step(*, "thumb-label" -> True*)
   |>  
 |>
 
@@ -255,7 +257,7 @@ ManipulateBlock[{varSpec:({_Symbol, ___}|{{_Symbol, __}, ___} )..}]:=Module[
 ManipulateBlock[varSpec_, expr_]:=ManipulateBlock[varSpec][expr]
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*ManipulateAPIFunction*)
 
 

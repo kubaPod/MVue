@@ -12,7 +12,12 @@ Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"CloudDeploy", "[", "\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{"MVue", " ", "@", " ", 
+   RowBox[{
+    RowBox[{"MVue", "[", 
+     RowBox[{
+      RowBox[{"ContinuousAction", " ", "\[Rule]", " ", "False"}], ",", " ", 
+      RowBox[{"AppearanceElements", " ", "\[Rule]", " ", 
+       RowBox[{"{", "\"\<SubmitButton\>\"", "}"}]}]}], "]"}], " ", "@", " ", 
     RowBox[{"Manipulate", "[", "\n", "  ", 
      RowBox[{
       RowBox[{"Graphics", "[", 
@@ -54,14 +59,21 @@ Cell[BoxData[
          RowBox[{"True", ",", "False"}], "}"}]}], "}"}], "\n", ",", " ", 
       RowBox[{"{", "b", "}"}], "\n", ",", " ", 
       RowBox[{"{", 
-       RowBox[{"c", ",", " ", "100000", ",", "1000000", ",", "10000"}], "}"}],
-       "\n", "\n", ",", " ", 
-      RowBox[{"ContinuousAction", " ", "\[Rule]", " ", "False"}]}], "\n", 
-     "]"}]}], ",", "\[IndentingNewLine]", "\"\<mvue/beta\>\"", ",", 
-   "\[IndentingNewLine]", 
+       RowBox[{"c", ",", " ", "100000", ",", "1000000", ",", "10000"}], 
+       "}"}]}], "\n", "\n", "\n", "]"}]}], ",", "\[IndentingNewLine]", 
+   "\"\<mvue/beta\>\"", ",", "\[IndentingNewLine]", 
    RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], 
   "\[IndentingNewLine]", "]"}]], "Code",
- CellLabel->"In[31]:=",ExpressionUUID->"60e33dcf-6aaa-41dd-acf3-e73e2b43ff0d"],
+ CellLabel->"In[11]:=",ExpressionUUID->"60e33dcf-6aaa-41dd-acf3-e73e2b43ff0d"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"continuousAction\"\>", "\[Rule]", "False"}], ",", 
+   RowBox[{"\<\"appearanceElements\"\>", "\[Rule]", 
+    RowBox[{"{", "\<\"SubmitButton\"\>", "}"}]}]}], 
+  "\[RightAssociation]"}]], \
+"Echo",ExpressionUUID->"7c5ea9aa-4b67-47da-9156-69d574f149fb"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -72,7 +84,7 @@ Cell[BoxData[
     "HyperlinkURL"], "]"}],
   CloudObject["https://www.wolframcloud.com/objects/kuba.pod/mvue/beta/app"],
   SelectWithContents->True]], "Output",
- CellLabel->"Out[31]=",ExpressionUUID->"462cef42-ba9e-4da2-9c73-1451076b4347"]
+ CellLabel->"Out[11]=",ExpressionUUID->"6fe8ebf3-6b4c-4251-85fe-09371880a3dd"]
 }, Open  ]],
 
 Cell[CellGroupData[{

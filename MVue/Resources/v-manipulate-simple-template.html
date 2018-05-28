@@ -5,11 +5,11 @@
   <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
   <style>
-    .input-group {
-      padding: 0;
-        /*this one is here because prior to Vuetify 1.1 release 
+      /*this one is here because prior to Vuetify 1.1 release 
           there is an issue with an alignment of a v-slider[hide-contents]
         */ 
+    .input-group {
+      padding: 0;        
     }
 
       /*v-select menu*/
@@ -27,7 +27,6 @@
      /* for longer values thumb-label is too small 
         so I'm making it transparent and adjusting position a little bit
      */
-
      div.slider__thumb--label {
        background-color: transparent!important;
        color:black;
@@ -48,39 +47,56 @@
         <v-container grid-list-md text-xs-center class="body-2">
           <v-layout row wrap>
             
-            <v-flex md4>                    
+            <v-flex md6>                    
               
-                <v-data-table
-                  hide-headers
-                  hide-actions
-                  :items="config.controllers"                  
-                  class="elevation-1"
-                >
-                  <template slot="items" slot-scope="props">      
-                    <td class="text-xs-left">
-                      {{  props.item.label }}
-                     
-                    </td>
-                   
-                    <td class="text-xs-left" width='100%'>
-                      <component 
-                          :is = 'props.item.type' 
-                          hide-details
-
-                          v-model = 'variables[props.item.name]'                             
-                          v-bind = 'props.item.spec'  
-                          v-on = 'props.item.events || {}'
-                      ></component> 
-
-                    </td>
-                  </template>
-                </v-data-table>
+                <v-layout column>
+                  <v-flex>
+                    <v-data-table
+                      hide-headers
+                      hide-actions
+                      :items="config.controllers"                  
+                      class="elevation-1"
+                    >
+                      <template slot="items" slot-scope="props">      
+                        <td class="text-xs-left">
+                          {{  props.item.label }}
+                         
+                        </td>
+                       
+                        <td class="text-xs-left" width='100%'>
+                          <component 
+                              :is = 'props.item.type' 
+                              hide-details
+                    
+                              v-model = 'variables[props.item.name]'                             
+                              v-bind = 'props.item.spec'  
+                              v-on = 'props.item.events || {}'
+                          ></component> 
+                        <td> 
+                          <div v-if="props.item.type === 'v-slider'">
+                            {{ variables[props.item.name] }}
+                          </div>
+                        </td>  
+                    
+                        </td>
+                      </template>
+                    </v-data-table>
+                  </v-flex>
+                  <v-flex >
+                    <v-btn 
+                      primary 
+                      v-if='submitButtonIncluded'
+                      @click='refreshBody'
+                      
+                    >Run</v-btn>
+                  </v-flex>
+                </v-layout>
 
                 
               
             </v-flex>
 
-            <v-flex md8>
+            <v-flex md6>
               <v-card class='tm-5'>
                 <v-layout column>
                   <v-flex >
@@ -122,6 +138,11 @@
       //     deep: true
       //   }
       // },
+      computed: {
+        submitButtonIncluded: function() {
+          return this.config.appearanceElements.indexOf('SubmitButton') > -1
+        }
+      },
       created: function() {
         var app = this;        
 
@@ -130,7 +151,7 @@
         app.config = JSON.parse(``);
         
           // global watch in case of cont action
-        if(app.config.continuousAction) {
+        if(app.config.continuousAction === true) {
           app.$watch(
             'variables', 
              function(val) { app.updating ? null : app.refreshBody(); },
@@ -147,7 +168,7 @@
             app.variables[controller.name] = controller.init;
 
             // how refreshBody is triggered by given controller
-            if(!app.config.continuousAction) { 
+            if(app.config.continuousAction === "Delayed") { 
                controller.events = controller.type === "v-slider" 
                     //maybe that is stupid but could not find anything better. and ondragend does not work
                   ? { mouseup: app.refreshBody }  
