@@ -62,7 +62,7 @@ and then:
  Body response `"FormatFunction"` can be whichever from `$ExportFormats` but it is up to the user to choose carefully. E.g. `"HTML"` would be the best for textual/graid data, `"SVG"` is nice for `Graphics` but for output from mesh like functions (`CountourPlot` etc) it is probably better to use `"PNG"`.  
  
  
- ## Examples
+ # Examples
  
  - Here is one example that fails with default deployment: [CloudDeploy Manipulate Plot](https://mathematica.stackexchange.com/q/172905/5478)
  
