@@ -26,7 +26,10 @@ Currently interface is just a single html file with all custom css/scripts and w
    
 If you don't have ``MPM` `` yet, run:
    
-    Import["https://raw.githubusercontent.com/kubapod/mpm/master/install.m"]
+```Mathematica
+Import["https://raw.githubusercontent.com/kubapod/mpm/master/install.m"]
+```
+
    
 and then:
    
@@ -62,20 +65,22 @@ and then:
  
  https://mathematica.stackexchange.com/q/172905/5478
  
-     CloudDeploy[
-      MVue["ExportFunction" -> "SVG"] @ Manipulate[
-        LogLogPlot[
-          Evaluate[ Table[
-            (c (4.13*^19 a + 4.13*^19 c) + 10^b (1.36*^18 + c (1.36*^18 + 4.15*^16 a + 4.15*^16 c))
-            )/(2.05*^17 a + 2.05*^17 c + 10^b (6.82*^15 + 2.06*^14 a + 2.06*^14 c))
-          , {b, 1., 5, 1}]
-          ]
-        , {a, 10^-3, 10^3}
-        , PlotLegends -> Table[10^b, {b, 1, 5, 1}]
-        ]
-      , {{c, 1/100}, 0, .1}
+```Mathematica
+CloudDeploy[
+  MVue["ExportFunction" -> "SVG"] @ Manipulate[
+    LogLogPlot[
+      Evaluate[ Table[
+        (c (4.13*^19 a + 4.13*^19 c) + 10^b (1.36*^18 + c (1.36*^18 + 4.15*^16 a + 4.15*^16 c))
+        )/(2.05*^17 a + 2.05*^17 c + 10^b (6.82*^15 + 2.06*^14 a + 2.06*^14 c))
+      , {b, 1., 5, 1}]
       ]
+    , {a, 10^-3, 10^3}
+    , PlotLegends -> Table[10^b, {b, 1, 5, 1}]
     ]
+  , {{c, 1/100}, 0, .1}
+  ]
+]
+ ```
     
 ![Alt text](data/v-manipulate-simple.gif?raw=true "v-manipulate")    
  
